@@ -501,30 +501,34 @@
     min-height: 300px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: stretch;
+    justify-content: flex-start;
+    text-align: left;
   }
-  .empty-icon {
-    width: 72px; height: 72px;
-    background: var(--light);
-    border-radius: 16px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 30px;
-    margin: 0 auto 20px;
+  .content-body .empty-icon {
+    display: none;
   }
   .content-body h3 {
     font-family: var(--font-serif);
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--navy);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--royal);
     margin-bottom: 10px;
+    text-align: left;
   }
   .content-body p {
-    color: var(--textlt);
-    font-size: 14px;
-    max-width: 400px;
-    line-height: 1.6;
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: justify;
+    max-width: 100%;
+    margin-bottom: 14px;
+  }
+  .content-body p:first-of-type {
+    color: var(--blue);
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 16px;
   }
   .coming-soon-badge {
     display: inline-block;
@@ -696,7 +700,7 @@
   <div class="header-text">
     <div class="republic">Republic of the Philippines</div>
     <h1>Department of Public Works and Highways</h1>
-    <div class="tagline">Tungo sa Makamasang Imprastraktura</div>
+    <div class="tagline">Tungo sa Makamasang kalidad na imprastraktura</div>
   </div>
   <div class="header-search">
     <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="6" stroke="#C8D0E8" stroke-width="2"/><path d="M13.5 13.5L17 17" stroke="#C8D0E8" stroke-width="2" stroke-linecap="round"/></svg>
@@ -794,36 +798,27 @@
       </div>
     </div>
 
-<div id="references-atlas" class="r-section active">
-  <div class="content-body">
-    <h3>DPWH ATLAS</h3>
-    <p>Compiled by the Statistics Division • Planning Service</p>
-    <p>Infrastructure is the foundation of a strong Republic. It facilitates economic activity, enhances mobility, improves living conditions and contributes to the achievement of social justice which are deemed key factors that will help maximize opportunities and realize potentials of the Filipino people. Through the years, the Department of Public Works and Highways (DPWH) has implemented various infrastructure projects under its manifold programs. This 2025 version of the DPWH Infrastructure Atlas presents updated information on the current characteristics and condition of our country’s vital infrastructures, specifically roads and bridges, on a national, regional and per district engineering office basis on a ten-year basis from CY 2015 to CY 2025 and from base year 2007 for bridges. It is comprised of two (2) parts each dedicated to providing detailed information on national roads (Volume I) and bridges (Volume II). Said information are condensed and laid out in matrices and through maps presented in Open Street and National Geographic World base maps for roads and bridges, respectively. Being aware of the significant application of infrastructure statistics, this Department, thru the Statistics Division, Planning Service with the participation of District Engineering Offices (DEOs) under the supervision of Regional Offices (ROs), has undertaken concerted effort to provide updated information on the current progress of national roads and bridges through the DPWH Atlas. Information contained herein is laid out in such a way as to provide users a clear idea on the infrastructure data being presented. Illustrations like maps, graphs, figures and tables were enhanced to easily identify and compare statistics. As one of the DPWH’s contributions in promoting the public’s right to information which covers matters of public concern, this report presents road and bridge inventory data/information useful to planners, researchers, policy and decision-makers. Thus, it is our ardent hope and desire that this work, modest as it may seem, will serve its purpose.</p>
-  </div>
-</div>
-<div id="references-rbi" class="r-section">
-  <div class="content-body">
-    <div class="empty-icon">🛣︝</div>
-    <h3>Road and Bridge Inventory</h3>
-    <p>Comprehensive national database of all roads and bridges under DPWH jurisdiction, with condition reports.</p>
-    <p>YOUR CONTENT HERE</p>
-  </div>
-</div>
-<div id="references-streamms" class="r-section">
-  <div class="content-body">
-    <div class="empty-icon">🌊</div>
-    <h3>StreamMS</h3>
-    <p>Stream Management System for flood control monitoring, river data, and waterway infrastructure management.</p>
-    <p>YOUR CONTENT HERE</p>
-  </div>
-</div>
-<div id="references-laws" class="r-section">
-  <div class="content-body">
-    <div class="empty-icon">⚖︝</div>
-    <h3>Laws, Codes, Orders</h3>
-    <p>Repository of Republic Acts, Executive Orders, administrative codes, and regulations governing DPWH operations.</p>
-    <p>YOUR CONTENT HERE</p>
-</div>
+    <div class="quicklinks">
+      <div class="ql-card" onclick="showSubpage('references','atlas')">
+        <div class="ql-icon">🗺︝</div>
+        <h3>DPWH ATLAS</h3>
+        <p>Interactive mapping tool</p>
+      </div>
+      <div class="ql-card" onclick="showSubpage('projects','gis')">
+        <div class="ql-icon">📡</div>
+        <h3>GIS Web App</h3>
+        <p>Geospatial data viewer</p>
+      </div>
+      <div class="ql-card" onclick="showSubpage('references','rbi')">
+        <div class="ql-icon">🛣︝</div>
+        <h3>Road & Bridge Inventory</h3>
+        <p>National road database</p>
+      </div>
+      <div class="ql-card" onclick="showPage('transparency')">
+        <div class="ql-icon">📋</div>
+        <h3>Transparency</h3>
+        <p>Public disclosures & FOI</p>
+      </div>
       <div class="ql-card" onclick="showSubpage('projects','ppp')">
         <div class="ql-icon">🤝</div>
         <h3>PPP Projects</h3>

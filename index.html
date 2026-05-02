@@ -501,34 +501,63 @@
     min-height: 300px;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .content-body .content-text {
+    max-width: 680px;
+    width: 100%;
+    text-align: left;
+    margin: 0 auto;
+  }
+  .content-body .content-text h3,
+  .content-body .content-text .subtitle {
     text-align: left;
   }
-  .content-body .empty-icon {
-    display: none;
+  .content-body .content-text h3 {
+    margin-bottom: 2px;
+    color: var(--text);
+  }
+  .content-body .content-text p {
+    margin: 0;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  .content-body .content-text .subtitle {
+    margin: 1px 0 16px;
+    color: #EC5F17;
+    font-size: 13px;
+  }
+  .content-body .content-text p:not(.subtitle) {
+    margin-top: 10px;
+  }
+  .content-body .content-text ul {
+    margin: 12px 0 0;
+    padding-left: 1.2em;
+    line-height: 1.6;
+  }
+  .empty-icon {
+    width: 72px; height: 72px;
+    background: var(--light);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+    margin: 0 auto 20px;
   }
   .content-body h3 {
     font-family: var(--font-serif);
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--royal);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--navy);
     margin-bottom: 10px;
-    text-align: left;
   }
   .content-body p {
-    color: var(--text);
-    font-size: 15px;
-    line-height: 1.8;
-    text-align: justify;
-    max-width: 100%;
-    margin-bottom: 14px;
-  }
-  .content-body p:first-of-type {
-    color: var(--blue);
-    font-weight: 500;
-    text-align: left;
-    margin-bottom: 16px;
+    color: var(--textlt);
+    font-size: 14px;
+    max-width: 400px;
+    line-height: 1.6;
   }
   .coming-soon-badge {
     display: inline-block;
@@ -700,7 +729,7 @@
   <div class="header-text">
     <div class="republic">Republic of the Philippines</div>
     <h1>Department of Public Works and Highways</h1>
-    <div class="tagline">Tungo sa Makamasang kalidad na imprastraktura</div>
+    <div class="tagline">Tungo sa Makamasang Imprastraktura</div>
   </div>
   <div class="header-search">
     <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="6" stroke="#C8D0E8" stroke-width="2"/><path d="M13.5 13.5L17 17" stroke="#C8D0E8" stroke-width="2" stroke-linecap="round"/></svg>
@@ -1063,28 +1092,30 @@
       <div class="subpage-tab" onclick="activateSubTab(this,'references-issuances')">Issuances</div>
     </div>
     <div id="references-atlas" class="r-section active">
-      <div class="content-body"><div class="empty-icon">🗺︝</div><h3>DPWH ATLAS</h3><p>The DPWH Atlas is an interactive mapping platform for visualizing national road networks and infrastructure data.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="content-text"><h3>DPWH ATLAS</h3><p class="subtitle">Compiled by the Statistics Division • Planning Service</p>
+        <p>Infrastructure is the foundation of a strong Republic. It facilitates economic activity, enhances mobility, improves living conditions and contributes to the achievement of social justice which are deemed key factors that will help maximize opportunities and realize potentials of the Filipino people. Through the years, the Department of Public Works and Highways (DPWH) has implemented various infrastructure projects under its manifold programs. This 2025 version of the DPWH Infrastructure Atlas presents updated information on the current characteristics and condition of our country’s vital infrastructures, specifically roads and bridges, on a national, regional and per district engineering office basis on a ten-year basis from CY 2015 to CY 2025 and from base year 2007 for bridges. It is comprised of two (2) parts each dedicated to providing detailed information on national roads (Volume I) and bridges (Volume II). Said information are condensed and laid out in matrices and through maps presented in Open Street and National Geographic World base maps for roads and bridges, respectively. Being aware of the significant application of infrastructure statistics, this Department, thru the Statistics Division, Planning Service with the participation of District Engineering Offices (DEOs) under the supervision of Regional Offices (ROs), has undertaken concerted effort to provide updated information on the current progress of national roads and bridges through the DPWH Atlas. Information contained herein is laid out in such a way as to provide users a clear idea on the infrastructure data being presented. Illustrations like maps, graphs, figures and tables were enhanced to easily identify and compare statistics. As one of the DPWH’s contributions in promoting the public’s right to information which covers matters of public concern, this report presents road and bridge inventory data/information useful to planners, researchers, policy and decision-makers. Thus, it is our ardent hope and desire that this work, modest as it may seem, will serve its purpose.</p></div>
+      </div>
     </div>
     <div id="references-rbi" class="r-section">
-      <div class="content-body"><div class="empty-icon">🛣︝</div><h3>Road and Bridge Inventory</h3><p>Comprehensive national database of all roads and bridges under DPWH jurisdiction, with condition reports.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">🛣︝</div><div class="content-text"><h3>Road and Bridge Inventory</h3><p class="subtitle">National asset registry with road and bridge condition overview.</p><p>Comprehensive national database of all roads and bridges under DPWH jurisdiction, with condition reports.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-streamms" class="r-section">
-      <div class="content-body"><div class="empty-icon">🌊</div><h3>StreamMS</h3><p>Stream Management System for flood control monitoring, river data, and waterway infrastructure management.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">🌊</div><div class="content-text"><h3>StreamMS</h3><p class="subtitle">Flood control monitoring, river flow analysis, and watershed management.</p><p>Stream Management System for flood control monitoring, river data, and waterway infrastructure management.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-laws" class="r-section">
-      <div class="content-body"><div class="empty-icon">⚖︝</div><h3>Laws, Codes, Orders</h3><p>Repository of Republic Acts, Executive Orders, administrative codes, and regulations governing DPWH operations.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">⚖︝</div><div class="content-text"><h3>Laws, Codes, Orders</h3><p class="subtitle">Legal framework and policy documents for DPWH operations.</p><p>Repository of Republic Acts, Executive Orders, administrative codes, and regulations governing DPWH operations.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-guidelines" class="r-section">
-      <div class="content-body"><div class="empty-icon">📘</div><h3>Guidelines and Manuals</h3><p>Technical manuals, engineering guidelines, standard operating procedures, and policy documents.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">📘</div><div class="content-text"><h3>Guidelines and Manuals</h3><p class="subtitle">Engineering standards, manuals, and procedural guides.</p><p>Technical manuals, engineering guidelines, standard operating procedures, and policy documents.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-standard-design" class="r-section">
-      <div class="content-body"><div class="empty-icon">📝</div><h3>Standard Design</h3><p>DPWH standard design templates for roads, bridges, buildings, and other infrastructure components.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">📝</div><div class="content-text"><h3>Standard Design</h3><p class="subtitle">Design templates and standard specifications for public works.</p><p>DPWH standard design templates for roads, bridges, buildings, and other infrastructure components.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-reports" class="r-section">
-      <div class="content-body"><div class="empty-icon">📊</div><h3>Reports</h3><p>Annual reports, accomplishment reports, audit findings, and performance evaluation documents.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">📊</div><div class="content-text"><h3>Reports</h3><p class="subtitle">Performance, audit, and accomplishment reporting.</p><p>Annual reports, accomplishment reports, audit findings, and performance evaluation documents.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-issuances" class="r-section">
-      <div class="content-body"><div class="empty-icon">📄</div><h3>Issuances</h3><p>Department Orders, Memorandum Circulars, and official issuances from the Office of the Secretary.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">📄</div><div class="content-text"><h3>Issuances</h3><p class="subtitle">Department Orders, Memorandum Circulars, and official directives.</p><p>Department Orders, Memorandum Circulars, and official issuances from the Office of the Secretary.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
   </div>
 

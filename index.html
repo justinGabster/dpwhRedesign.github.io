@@ -82,10 +82,10 @@
   }
 
   .logo-glow {
-  filter: drop-shadow(0 0 6px rgba(76, 110, 245, 0.8))
-  drop-shadow(0 0 12px rgba(76, 110, 245, 0.6));
+    filter: drop-shadow(0 0 6px rgba(76, 110, 245, 0.8))
+    drop-shadow(0 0 12px rgba(76, 110, 245, 0.6));
   }
-  
+
   .header-text h1 {
     font-family: var(--font-serif);
     color: var(--white);
@@ -505,41 +505,6 @@
     justify-content: center;
     text-align: center;
   }
-  .content-body .content-text {
-    max-width: none;
-    width: 100%;
-    text-align: left;
-    margin: 0;
-  }
-  .content-body .content-text h3,
-  .content-body .content-text .subtitle {
-    text-align: left;
-  }
-  .content-body .content-text h3 {
-    margin-bottom: 2px;
-    color: var(--text);
-  }
-  .content-body .content-text p {
-    margin: 0;
-    line-height: 1.6;
-    text-align: justify;
-    text-justify: inter-word;
-    max-width: none;
-    width: 100%;
-  }
-  .content-body .content-text .subtitle {
-    margin: 1px 0 16px;
-    color: #EC5F17;
-    font-size: 13px;
-  }
-  .content-body .content-text p:not(.subtitle) {
-    margin-top: 10px;
-  }
-  .content-body .content-text ul {
-    margin: 12px 0 0;
-    padding-left: 1.2em;
-    line-height: 1.6;
-  }
   .empty-icon {
     width: 72px; height: 72px;
     background: var(--light);
@@ -638,6 +603,275 @@
   .r-section { display: none; }
   .r-section.active { display: block; }
 
+  /* ── TRANSPARENCY PAGE STYLES ── */
+  .tp-seal-hero {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+  .tp-seal-img-col {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .tp-seal-img-col img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid var(--orange);
+    background: var(--light);
+  }
+  .tp-seal-img-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--textlt);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .tp-seal-text h3 {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .tp-seal-text p {
+    font-size: 13.5px;
+    color: var(--textlt);
+    line-height: 1.78;
+  }
+  .tp-seal-text p + p { margin-top: 8px; }
+  .tp-seal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--light);
+    border: 1px solid rgba(76,110,245,0.2);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--royal);
+    margin-top: 16px;
+  }
+  .tp-seal-badge-dot {
+    width: 7px;
+    height: 7px;
+    background: #22c55e;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .tp-section-label {
+    font-family: var(--font-serif);
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .tp-section-label::before {
+    content: '';
+    width: 4px;
+    height: 18px;
+    background: var(--orange);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Accordion */
+  .acc-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.18s;
+  }
+  .acc-item.open {
+    box-shadow: 0 4px 18px rgba(36,56,166,0.1);
+  }
+  .acc-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .acc-header:hover { background: var(--light); }
+  .acc-roman {
+    width: 34px;
+    height: 34px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+    transition: background 0.18s;
+  }
+  .acc-item.open .acc-roman { background: var(--royal); }
+  .acc-header-text { flex: 1; }
+  .acc-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+  }
+  .acc-subtitle {
+    font-size: 11.5px;
+    color: var(--textlt);
+    margin-top: 2px;
+    font-weight: 400;
+  }
+  .acc-status {
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .acc-status.available { background: #dcfce7; color: #166534; }
+  .acc-status.partial   { background: #fef9c3; color: #854d0e; }
+  .acc-status.pending   { background: var(--light); color: var(--royal); }
+  .acc-chevron {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--textlt);
+    transition: transform 0.2s, color 0.18s;
+  }
+  .acc-item.open .acc-chevron { transform: rotate(180deg); color: var(--royal); }
+
+  /* Accordion body */
+  .acc-body {
+    display: none;
+    border-top: 1px solid var(--border);
+    padding: 18px 20px;
+    background: #FAFBFF;
+  }
+  .acc-item.open .acc-body { display: block; }
+  .acc-body-note {
+    font-size: 12.5px;
+    color: var(--textlt);
+    margin-bottom: 14px;
+    line-height: 1.65;
+  }
+
+  /* Year tabs inside accordion */
+  .year-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .ytab {
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--textlt);
+    cursor: pointer;
+    transition: all 0.13s;
+    font-family: var(--font-sans);
+  }
+  .ytab.active, .ytab:hover {
+    background: var(--royal);
+    color: var(--white);
+    border-color: var(--royal);
+  }
+
+  /* Document sub-section label */
+  .doc-section-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--textlt);
+    padding: 10px 12px 5px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+
+  /* Document rows */
+  .doc-list { list-style: none; }
+  .doc-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.13s;
+  }
+  .doc-row:hover { background: var(--light); }
+  .doc-icon {
+    width: 30px;
+    height: 30px;
+    background: var(--light);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .doc-info { flex: 1; min-width: 0; }
+  .doc-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .doc-desc {
+    font-size: 11px;
+    color: var(--textlt);
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .doc-chip {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--royal);
+    background: var(--light);
+    border: 1px solid rgba(76,110,245,0.15);
+    padding: 2px 9px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .doc-chip.portal { background: #fef9c3; color: #854d0e; border-color: rgba(180,130,0,0.15); }
+  .doc-arrow {
+    font-size: 12px;
+    color: var(--textlt);
+    flex-shrink: 0;
+  }
+
   /* FOOTER */
   footer {
     background: var(--navy);
@@ -708,10 +942,14 @@
     .topbar { display: none; }
     main { padding: 0 12px; }
     .page-header { padding: 24px 20px; }
+    .tp-seal-hero { flex-direction: column; align-items: center; }
+    .tp-seal-text h3 { text-align: center; }
   }
-  /* ════════════════════════════════════════════
+<<<<<<< HEAD
+=======
+  /* ╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝
    CONTACT PAGE — REDESIGNED
-════════════════════════════════════════════ */
+╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝╝ */
 
 .contact-hero {
   background: linear-gradient(135deg, var(--navy) 0%, var(--royal) 100%);
@@ -991,29 +1229,18 @@
   .contact-cards-grid { grid-template-columns: 1fr; }
   .directory-grid { grid-template-columns: 1fr; }
 }
+>>>>>>> 4d040148c053508f927b8e507a6e859a18c19e00
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div>Republic of the Philippines &nbsp;|&nbsp; Official Website of the Department of Public Works and Highways</div>
-  <div>
-    <a href="#">Accessibility</a>
-    <a href="#">Sitemap</a>
-    <a href="#">FAQs</a>
-    <a href="#">PH Flag</a>
-  </div>
-</div>
-
 <!-- HEADER -->
 <header>
   <img src="images/logo.png" class="logo-glow" width="54" height="54" alt="Logo">
-
   <div class="header-text">
     <div class="republic">Republic of the Philippines</div>
     <h1>Department of Public Works and Highways</h1>
-    <div class="tagline">Tungo sa Makamasang Imprastraktura</div>
+    <div class="tagline">Kalidad na Imprastraktura para sa Bawat Pilipino</div>
   </div>
   <div class="header-search">
     <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="6" stroke="#C8D0E8" stroke-width="2"/><path d="M13.5 13.5L17 17" stroke="#C8D0E8" stroke-width="2" stroke-linecap="round"/></svg>
@@ -1113,7 +1340,7 @@
 
     <div class="quicklinks">
       <div class="ql-card" onclick="showSubpage('references','atlas')">
-        <div class="ql-icon">🗺︝</div>
+        <div class="ql-icon">🗺︎</div>
         <h3>DPWH ATLAS</h3>
         <p>Interactive mapping tool</p>
       </div>
@@ -1123,7 +1350,7 @@
         <p>Geospatial data viewer</p>
       </div>
       <div class="ql-card" onclick="showSubpage('references','rbi')">
-        <div class="ql-icon">🛣︝</div>
+        <div class="ql-icon">🛣︎</div>
         <h3>Road & Bridge Inventory</h3>
         <p>National road database</p>
       </div>
@@ -1198,20 +1425,503 @@
     </div>
   </div>
 
-  <!-- TRANSPARENCY -->
+  <!-- ══════════════════════════════════════════
+       TRANSPARENCY PAGE
+       ══════════════════════════════════════════ -->
   <div class="page" id="page-transparency">
     <div class="page-header">
       <div class="breadcrumb">Home &rsaquo; <span>Transparency</span></div>
-      <h2>Transparency Portal</h2>
-      <p>Access official DPWH public disclosures, financial reports, procurement information, and Freedom of Information requests.</p>
+      <h2>Transparency Seal</h2>
+      <p>DPWH compliance with Section 106 of R.A. No. 11260 (General Appropriations Act FY 2019) — public access to government information, financial reports, and accountability documents.</p>
     </div>
-    <div class="content-body">
-      <div class="empty-icon">📂</div>
-      <h3>Transparency Portal</h3>
-      <p>Public financial disclosures, procurement records, FOI requests, and accountability documents will be available here.</p>
-      <span class="coming-soon-badge">Content Coming Soon</span>
+
+    <!-- Seal + Symbolism -->
+    <div class="tp-seal-hero">
+      <div class="tp-seal-img-col">
+        <!--
+          Replace the src below with your actual image path, e.g.:
+            src="images/transparency-seal.png"
+          The image will be displayed as a 120×120 circle with an orange border.
+        -->
+        <img src="images/transparency-seal.png" alt="Philippines Transparency Seal">
+        <div class="tp-seal-img-label">Philippines<br>Transparency Seal</div>
+      </div>
+      <div class="tp-seal-text">
+        <h3>Symbolism of the Transparency Seal</h3>
+        <p>A pearl buried inside a tightly-shut shell is practically worthless. Government information is a pearl, meant to be shared with the public in order to maximize its inherent value.</p>
+        <p>The Transparency Seal, depicted by a pearl shining out of an open shell, is a symbol of a policy shift towards openness in access to government information. On the one hand, it hopes to inspire Filipinos in the civil service to be more open to citizen engagement; on the other, to invite the Filipino citizenry to exercise their right to participate in governance.</p>
+        <p>This initiative is envisioned as a step in the right direction towards solidifying the position of the Philippines as the <em>Pearl of the Orient</em> — a shining example for democratic virtue in the region.</p>
+        <div class="tp-seal-badge">
+          <span class="tp-seal-badge-dot"></span>
+          DPWH Compliance — R.A. No. 11260, Sec. 106 (GAA FY 2019)
+        </div>
+      </div>
     </div>
+
+    <!-- Section label -->
+    <div class="tp-section-label">Transparency Seal Requirements</div>
+
+    <!-- ── I. Mandate & Officials ── -->
+    <div class="acc-item open">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-roman">I</div>
+        <div class="acc-header-text">
+          <div class="acc-title">Mandate, Functions &amp; Key Officials</div>
+          <div class="acc-subtitle">Agency mandate, organizational structure, and contact information</div>
+        </div>
+        <span class="acc-status available">Available</span>
+        <svg class="acc-chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body">
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📜</div>
+            <div class="doc-info">
+              <div class="doc-name">Agency Mandate &amp; Functions</div>
+              <div class="doc-desc">Executive Order No. 124, s. 1987 · DPWH core mandates</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">🏛</div>
+            <div class="doc-info">
+              <div class="doc-name">Organizational Structure</div>
+              <div class="doc-desc">Updated organizational chart · FY 2025</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">👤</div>
+            <div class="doc-info">
+              <div class="doc-name">Directory of Key Officials</div>
+              <div class="doc-desc">Secretary, Undersecretaries, Assistant Secretaries, Bureau Directors</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📞</div>
+            <div class="doc-info">
+              <div class="doc-name">Contact Information</div>
+              <div class="doc-desc">Central Office · All regional and district offices</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── II. Annual Reports ── -->
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-roman">II</div>
+        <div class="acc-header-text">
+          <div class="acc-title">Annual Reports</div>
+          <div class="acc-subtitle">Financial Accountability Reports (FARs &amp; BARs) — current and prior years</div>
+        </div>
+        <span class="acc-status available">Available</span>
+        <svg class="acc-chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body">
+        <div class="year-tabs">
+          <button class="ytab active" onclick="switchYear(this)">2024</button>
+          <button class="ytab" onclick="switchYear(this)">2023</button>
+          <button class="ytab" onclick="switchYear(this)">2022</button>
+          <button class="ytab" onclick="switchYear(this)">2021</button>
+        </div>
+        <div class="doc-section-label">Financial Accountability Reports</div>
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📊</div>
+            <div class="doc-info">
+              <div class="doc-name">FAR No. 1 — SAAOBDB</div>
+              <div class="doc-desc">Statement of Appropriations, Allotments, Obligations, Disbursements &amp; Balances</div>
+            </div>
+            <span class="doc-chip">Q1–Q4</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📊</div>
+            <div class="doc-info">
+              <div class="doc-name">FAR No. 1-A — Summary Report on Disbursements</div>
+              <div class="doc-desc">Monthly and quarterly disbursement reports</div>
+            </div>
+            <span class="doc-chip">Q1–Q4</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📊</div>
+            <div class="doc-info">
+              <div class="doc-name">FAR No. 5 — Revenue &amp; Other Receipts</div>
+              <div class="doc-desc">Quarterly report on revenue and other receipts</div>
+            </div>
+            <span class="doc-chip">Q1–Q4</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+        <div class="doc-section-label" style="margin-top:10px;">Budget Accountability Reports</div>
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📋</div>
+            <div class="doc-info">
+              <div class="doc-name">BAR No. 1 — Quarterly Report of Operations</div>
+              <div class="doc-desc">Physical plan and actual accomplishments per quarter</div>
+            </div>
+            <span class="doc-chip">Q1–Q4</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── III. DBM Budget & Targets ── -->
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-roman">III</div>
+        <div class="acc-header-text">
+          <div class="acc-title">DBM-Approved Budget &amp; Targets</div>
+          <div class="acc-subtitle">Current year appropriations and corresponding MFO/GAA targets</div>
+        </div>
+        <span class="acc-status available">Available</span>
+        <svg class="acc-chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body">
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">💰</div>
+            <div class="doc-info">
+              <div class="doc-name">DBM-Approved Budget FY 2025</div>
+              <div class="doc-desc">General Appropriations Act · National Expenditure Program</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">🎯</div>
+            <div class="doc-info">
+              <div class="doc-name">Corresponding MFOs / GAA Targets</div>
+              <div class="doc-desc">Major Final Outputs and performance targets for FY 2025</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── IV. Programs & Projects ── -->
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-roman">IV</div>
+        <div class="acc-header-text">
+          <div class="acc-title">Programs, Projects &amp; Status of Implementation</div>
+          <div class="acc-subtitle">Infrastructure programs, beneficiaries, and implementation updates</div>
+        </div>
+        <span class="acc-status available">Available</span>
+        <svg class="acc-chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body">
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">🗺</div>
+            <div class="doc-info">
+              <div class="doc-name">Projects and Programs FY 2025</div>
+              <div class="doc-desc">National infrastructure projects per region · roads, bridges, flood control</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">👥</div>
+            <div class="doc-info">
+              <div class="doc-name">Beneficiaries per Project</div>
+              <div class="doc-desc">Project beneficiaries as identified in applicable special provisions</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📈</div>
+            <div class="doc-info">
+              <div class="doc-name">Status of Implementation — Q1 2025</div>
+              <div class="doc-desc">Physical and financial accomplishment report · as of March 31, 2025</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="https://transparency.dpwh.gov.ph/" target="_blank">
+            <div class="doc-icon">📡</div>
+            <div class="doc-info">
+              <div class="doc-name">DPWH Transparency Portal</div>
+              <div class="doc-desc">Live project tracking — 250,000+ infrastructure projects nationwide</div>
+            </div>
+            <span class="doc-chip portal">Portal</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── V. Procurement ── -->
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-roman">V</div>
+        <div class="acc-header-text">
+          <div class="acc-title">Annual Procurement Plan &amp; Contract Awards</div>
+          <div class="acc-subtitle">APP, awarded contracts, and contractor/supplier information</div>
+        </div>
+        <span class="acc-status available">Available</span>
+        <svg class="acc-chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body">
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📋</div>
+            <div class="doc-info">
+              <div class="doc-name">Annual Procurement Plan FY 2025</div>
+              <div class="doc-desc">Central Office and all regional offices · GPPB-compliant APP</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">🤝</div>
+            <div class="doc-info">
+              <div class="doc-name">Contracts Awarded &amp; Contractors</div>
+              <div class="doc-desc">List of awarded contracts with contractor names and amounts</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="https://www.philgeps.gov.ph/" target="_blank">
+            <div class="doc-icon">🔍</div>
+            <div class="doc-info">
+              <div class="doc-name">PhilGEPS Postings</div>
+              <div class="doc-desc">All DPWH procurement notices on the Philippine Government Electronic Procurement System</div>
+            </div>
+            <span class="doc-chip portal">Link</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── VI. SPMS Rankings ── -->
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-roman">VI</div>
+        <div class="acc-header-text">
+          <div class="acc-title">System of Ranking Delivery Units &amp; Individuals</div>
+          <div class="acc-subtitle">Performance-based bonus ranking and SPMS compliance</div>
+        </div>
+        <span class="acc-status partial">Partial</span>
+        <svg class="acc-chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body">
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">🏆</div>
+            <div class="doc-info">
+              <div class="doc-name">Performance-Based Bonus Rankings FY 2024</div>
+              <div class="doc-desc">Rankings of delivery units and individual employees</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📝</div>
+            <div class="doc-info">
+              <div class="doc-name">Strategic Performance Management System</div>
+              <div class="doc-desc">SPMS framework and office performance targets</div>
+            </div>
+            <span class="doc-chip">Pending</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── VII. QMS ── -->
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-roman">VII</div>
+        <div class="acc-header-text">
+          <div class="acc-title">Quality Management System &amp; Operations Manual</div>
+          <div class="acc-subtitle">ISO-certified QMS documents and citizen's charter</div>
+        </div>
+        <span class="acc-status available">Available</span>
+        <svg class="acc-chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body">
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">✅</div>
+            <div class="doc-info">
+              <div class="doc-name">ISO 9001:2015 QMS Certificate</div>
+              <div class="doc-desc">Scope of certification · certifying body details</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📘</div>
+            <div class="doc-info">
+              <div class="doc-name">Citizen's Charter</div>
+              <div class="doc-desc">ARTA-compliant service standards · processing times and fees</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📅</div>
+            <div class="doc-info">
+              <div class="doc-name">Updated Calendar of Activities</div>
+              <div class="doc-desc">Monthly schedule of official DPWH activities and events</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── VIII. Issuances ── -->
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-roman">VIII</div>
+        <div class="acc-header-text">
+          <div class="acc-title">Agency / Office Issuances</div>
+          <div class="acc-subtitle">Department Orders, Memorandum Circulars, and MOAs/MOUs</div>
+        </div>
+        <span class="acc-status available">Available</span>
+        <svg class="acc-chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body">
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📄</div>
+            <div class="doc-info">
+              <div class="doc-name">Department Orders</div>
+              <div class="doc-desc">All DOs issued by the Office of the Secretary</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📄</div>
+            <div class="doc-info">
+              <div class="doc-name">Memorandum Circulars</div>
+              <div class="doc-desc">Internal circulars governing policies and procedures</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">🤝</div>
+            <div class="doc-info">
+              <div class="doc-name">MOAs and MOUs</div>
+              <div class="doc-desc">Signed memoranda with partner agencies and organizations</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── IX. Recruitment ── -->
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-roman">IX</div>
+        <div class="acc-header-text">
+          <div class="acc-title">Recruitment &amp; Vacant Positions</div>
+          <div class="acc-subtitle">CSC-posted vacancies and hiring announcements</div>
+        </div>
+        <span class="acc-status available">Available</span>
+        <svg class="acc-chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body">
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">💼</div>
+            <div class="doc-info">
+              <div class="doc-name">Vacant Positions — Central Office</div>
+              <div class="doc-desc">Plantilla positions with qualification standards · current SY</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">💼</div>
+            <div class="doc-info">
+              <div class="doc-name">Vacant Positions — Regional Offices</div>
+              <div class="doc-desc">All 17 regional offices · district engineering offices</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📋</div>
+            <div class="doc-info">
+              <div class="doc-name">Plantilla of Personnel</div>
+              <div class="doc-desc">Authorized plantilla and current staffing complement</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── X. FOI ── -->
+    <div class="acc-item" style="margin-bottom: 36px;">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <div class="acc-roman">X</div>
+        <div class="acc-header-text">
+          <div class="acc-title">Freedom of Information (FOI)</div>
+          <div class="acc-subtitle">FOI manual, request log, and People's FOI portal access</div>
+        </div>
+        <span class="acc-status available">Available</span>
+        <svg class="acc-chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="acc-body">
+        <ul class="doc-list">
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">🔓</div>
+            <div class="doc-info">
+              <div class="doc-name">DPWH FOI Manual</div>
+              <div class="doc-desc">EO No. 2, s. 2016 — implementing rules and procedures for FOI requests</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="#">
+            <div class="doc-icon">📂</div>
+            <div class="doc-info">
+              <div class="doc-name">FOI Request Log</div>
+              <div class="doc-desc">Quarterly log of received and processed FOI requests</div>
+            </div>
+            <span class="doc-chip">PDF</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+          <li><a class="doc-row" href="https://www.foi.gov.ph/" target="_blank">
+            <div class="doc-icon">🌐</div>
+            <div class="doc-info">
+              <div class="doc-name">Submit an FOI Request</div>
+              <div class="doc-desc">People's FOI Portal — foi.gov.ph</div>
+            </div>
+            <span class="doc-chip portal">Portal</span>
+            <span class="doc-arrow">→</span>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
   </div>
+  <!-- end #page-transparency -->
 
   <!-- PROJECTS -->
   <div class="page" id="page-projects">
@@ -1227,19 +1937,40 @@
       <div class="subpage-tab" onclick="activateSubTab(this,'projects-ppp')">Public-Private Partnership</div>
     </div>
     <div id="projects-infrastructure" class="r-section active">
-      <div class="content-body"><div class="empty-icon">🝗︝</div><h3>Infrastructure Projects</h3><p>National infrastructure projects database, status tracking, and project details will be listed here.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">🏗</div><h3>Infrastructure Projects</h3><p>National infrastructure projects database, status tracking, and project details will be listed here.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="projects-infra-stats" class="r-section">
       <div class="content-body"><div class="empty-icon">📊</div><h3>Infrastructure Statistics</h3><p>Statistical data on roads, bridges, flood control, and other national infrastructure assets.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="projects-gis" class="r-section">
-      <div class="content-body"><div class="empty-icon">🗺︝</div><h3>GIS Web Application</h3><p>Interactive geospatial mapping tool for viewing DPWH infrastructure data across the country.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">🗺</div><h3>GIS Web Application</h3><p>Interactive geospatial mapping tool for viewing DPWH infrastructure data across the country.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="projects-ppp" class="r-section">
       <div class="content-body"><div class="empty-icon">🤝</div><h3>Public-Private Partnership</h3><p>PPP project listings, partnership frameworks, and investor information for infrastructure development.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
   </div>
+
   <!-- CONTACT -->
+<<<<<<< HEAD
+  <div class="page" id="page-contact">
+    <div class="page-header">
+      <div class="breadcrumb">Home &rsaquo; <span>Contact Us</span></div>
+      <h2>Contact Us</h2>
+      <p>Get in touch with DPWH through our feedback form or look up office directories.</p>
+    </div>
+    <div class="subpage-tabs">
+      <div class="subpage-tab active" onclick="activateSubTab(this,'contact-feedback')">Feedback</div>
+      <div class="subpage-tab" onclick="activateSubTab(this,'contact-directory')">Directory</div>
+    </div>
+    <div id="contact-feedback" class="r-section active">
+      <div class="content-body"><div class="empty-icon">📬</div><h3>Feedback Form</h3><p>Submit your concerns, suggestions, or commendations to the Department of Public Works and Highways.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+    </div>
+    <div id="contact-directory" class="r-section">
+      <div class="content-body"><div class="empty-icon">📞</div><h3>Office Directory</h3><p>Contact information for DPWH central office and all regional and district offices nationwide.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+    </div>
+  </div>
+
+=======
 <div class="page" id="page-contact">
 
   <!-- Hero -->
@@ -1249,7 +1980,7 @@
     <p>Reach DPWH for inquiries, project concerns, road reports, and feedback. We're here to assist every Filipino.</p>
     <div class="hero-status-chips">
       <span class="status-chip"><span class="chip-dot"></span> Lines Open Mon–Fri, 8AM–5PM</span>
-      <span class="status-chip">📍 Bonifacio Drive, Port Area, Manila</span>
+      <span class="status-chip">📝 Bonifacio Drive, Port Area, Manila</span>
     </div>
   </div>
 
@@ -1276,24 +2007,24 @@
         <div class="ccard-sub">Toll-free · Mon–Fri · 8AM–5PM</div>
       </div>
       <div class="ccard">
-        <div class="ccard-icon c-orange">✉️</div>
+        <div class="ccard-icon c-orange">✉︝</div>
         <div class="ccard-label">Email</div>
         <div class="ccard-value"><a href="mailto:info@dpwh.gov.ph">info@dpwh.gov.ph</a></div>
         <div class="ccard-sub">Reply within 2 business days</div>
       </div>
       <div class="ccard">
-        <div class="ccard-icon c-green">📍</div>
+        <div class="ccard-icon c-green">📝</div>
         <div class="ccard-label">Office Address</div>
         <div class="ccard-value">Bonifacio Drive, Port Area<br>Manila 1018</div>
         <div class="ccard-sub">Central Office</div>
       </div>
       <div class="ccard">
-        <div class="ccard-icon c-purple">🌐</div>
+        <div class="ccard-icon c-purple">🌝</div>
         <div class="ccard-label">Social Media</div>
         <div class="ccard-value" style="font-size:13.5px;font-weight:500;color:var(--textlt);">Follow for announcements</div>
         <div class="social-row">
           <span class="social-pill">f&nbsp;Facebook</span>
-          <span class="social-pill">🐦&nbsp;Twitter</span>
+          <span class="social-pill">🝦&nbsp;Twitter</span>
           <span class="social-pill">▶&nbsp;YouTube</span>
         </div>
       </div>
@@ -1302,7 +2033,7 @@
     <div class="c-divider"></div>
 
     <div class="contact-section-head">
-      <div class="csection-label">📍 Locations</div>
+      <div class="csection-label">📝 Locations</div>
       <h3>Find Our Offices</h3>
       <p>The Central Office is in Manila. Regional and District Engineering Offices serve communities across all provinces.</p>
     </div>
@@ -1585,10 +2316,143 @@
 </script>
 
 
+<!-- Leaflet CSS & JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  // Initialize map centered on Philippines
+  const map = L.map('dpwh-map', {
+    center: [12.8797, 121.7740],
+    zoom: 6,
+    scrollWheelZoom: false
+  });
+
+  // OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  // Custom marker icons
+  function makeIcon(color) {
+    return L.divIcon({
+      className: '',
+      html: `<div style="
+        width: 14px; height: 14px;
+        background: ${color};
+        border: 2.5px solid white;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+      "></div>`,
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+      popupAnchor: [0, -10]
+    });
+  }
+
+  const iconMain   = makeIcon('#E53E3E');  // red   — Central Office
+  const iconRegion = makeIcon('#2438A6');  // blue  — Regional Office
+  const iconDist   = makeIcon('#FF8A5C');  // orange — District Office
+
+  // ── CENTRAL OFFICE ──
+  const centralOffices = [
+    { name: 'DPWH Central Office', lat: 14.5883, lng: 120.9784, addr: 'Bonifacio Drive, Port Area, Manila' },
+  ];
+
+  // ── REGIONAL OFFICES ──
+  const regionalOffices = [
+    { name: 'DPWH NCR Regional Office',   lat: 14.5995, lng: 120.9842, addr: 'Manila, NCR' },
+    { name: 'DPWH Region I',              lat: 16.0833, lng: 120.6200, addr: 'San Fernando, La Union' },
+    { name: 'DPWH Region II',             lat: 17.6132, lng: 121.7270, addr: 'Tuguegarao, Cagayan' },
+    { name: 'DPWH Region III',            lat: 15.1450, lng: 120.5960, addr: 'San Fernando, Pampanga' },
+    { name: 'DPWH Region IV-A',           lat: 14.0507, lng: 121.3190, addr: 'Calamba, Laguna' },
+    { name: 'DPWH Region IV-B',           lat: 13.4417, lng: 121.0390, addr: 'Calapan, Oriental Mindoro' },
+    { name: 'DPWH Region V',              lat: 13.1391, lng: 123.7438, addr: 'Legazpi, Albay' },
+    { name: 'DPWH Region VI',             lat: 10.7202, lng: 122.5621, addr: 'Iloilo City' },
+    { name: 'DPWH Region VII',            lat: 10.3157, lng: 123.8854, addr: 'Cebu City' },
+    { name: 'DPWH Region VIII',           lat: 11.2442, lng: 125.0039, addr: 'Tacloban, Leyte' },
+    { name: 'DPWH Region IX',             lat: 6.9214,  lng: 122.0790, addr: 'Zamboanga City' },
+    { name: 'DPWH Region X',              lat: 8.4542,  lng: 124.6319, addr: 'Cagayan de Oro' },
+    { name: 'DPWH Region XI',             lat: 7.1907,  lng: 125.4553, addr: 'Davao City' },
+    { name: 'DPWH Region XII',            lat: 6.2888,  lng: 124.9940, addr: 'Koronadal, South Cotabato' },
+    { name: 'DPWH Region XIII (CARAGA)',  lat: 8.9475,  lng: 125.5435, addr: 'Butuan City' },
+    { name: 'DPWH CAR',                   lat: 16.4023, lng: 120.5960, addr: 'Baguio City' },
+    { name: 'DPWH BARMM',                 lat: 7.2047,  lng: 124.2310, addr: 'Cotabato City' },
+  ];
+
+  // ── DISTRICT ENGINEERING OFFICES (sample) ──
+  const districtOffices = [
+    { name: 'Manila 1st DEO',        lat: 14.6042, lng: 120.9822, addr: 'Manila' },
+    { name: 'Quezon City DEO',        lat: 14.6760, lng: 121.0437, addr: 'Quezon City' },
+    { name: 'Makati DEO',             lat: 14.5547, lng: 121.0244, addr: 'Makati' },
+    { name: 'Caloocan DEO',           lat: 14.6573, lng: 120.9675, addr: 'Caloocan' },
+    { name: 'Batangas DEO',           lat: 13.7565, lng: 121.0583, addr: 'Batangas City' },
+    { name: 'Baguio City DEO',        lat: 16.4023, lng: 120.5960, addr: 'Baguio City' },
+    { name: 'Dagupan DEO',            lat: 16.0433, lng: 120.3338, addr: 'Dagupan, Pangasinan' },
+    { name: 'Angeles City DEO',       lat: 15.1450, lng: 120.5887, addr: 'Angeles, Pampanga' },
+    { name: 'Lucena DEO',             lat: 13.9302, lng: 121.6170, addr: 'Lucena, Quezon' },
+    { name: 'Naga City DEO',          lat: 13.6218, lng: 123.1945, addr: 'Naga, Camarines Sur' },
+    { name: 'Iloilo DEO',             lat: 10.6969, lng: 122.5644, addr: 'Iloilo City' },
+    { name: 'Bacolod DEO',            lat: 10.6713, lng: 122.9511, addr: 'Bacolod, Negros Occidental' },
+    { name: 'Cebu City DEO',          lat: 10.3000, lng: 123.9000, addr: 'Cebu City' },
+    { name: 'Dumaguete DEO',          lat: 9.3068,  lng: 123.3054, addr: 'Dumaguete, Negros Oriental' },
+    { name: 'Zamboanga City DEO',     lat: 6.9214,  lng: 122.0790, addr: 'Zamboanga City' },
+    { name: 'General Santos DEO',     lat: 6.1164,  lng: 125.1716, addr: 'General Santos City' },
+    { name: 'Davao City DEO',         lat: 7.0731,  lng: 125.6128, addr: 'Davao City' },
+    { name: 'Cagayan de Oro DEO',     lat: 8.4822,  lng: 124.6472, addr: 'Cagayan de Oro' },
+    { name: 'Butuan DEO',             lat: 8.9475,  lng: 125.5435, addr: 'Butuan City' },
+    { name: 'Cotabato DEO',           lat: 7.2047,  lng: 124.2310, addr: 'Cotabato City' },
+  ];
+
+  // Add markers
+  centralOffices.forEach(o => {
+    L.marker([o.lat, o.lng], { icon: iconMain })
+      .addTo(map)
+      .bindPopup(`
+        <div style="font-family:'DM Sans',sans-serif;min-width:180px;">
+          <div style="font-weight:700;font-size:13px;color:#0B1A4A;margin-bottom:4px;">${o.name}</div>
+          <div style="font-size:11.5px;color:#5A6A9A;">${o.addr}</div>
+          <div style="margin-top:6px;">
+            <span style="display:inline-block;background:#FFF0E9;color:#E53E3E;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">Central Office</span>
+          </div>
+        </div>
+      `);
+  });
+
+  regionalOffices.forEach(o => {
+    L.marker([o.lat, o.lng], { icon: iconRegion })
+      .addTo(map)
+      .bindPopup(`
+        <div style="font-family:'DM Sans',sans-serif;min-width:180px;">
+          <div style="font-weight:700;font-size:13px;color:#0B1A4A;margin-bottom:4px;">${o.name}</div>
+          <div style="font-size:11.5px;color:#5A6A9A;">${o.addr}</div>
+          <div style="margin-top:6px;">
+            <span style="display:inline-block;background:#F0F3FF;color:#2438A6;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">Regional Office</span>
+          </div>
+        </div>
+      `);
+  });
+
+  districtOffices.forEach(o => {
+    L.marker([o.lat, o.lng], { icon: iconDist })
+      .addTo(map)
+      .bindPopup(`
+        <div style="font-family:'DM Sans',sans-serif;min-width:180px;">
+          <div style="font-weight:700;font-size:13px;color:#0B1A4A;margin-bottom:4px;">${o.name}</div>
+          <div style="font-size:11.5px;color:#5A6A9A;">${o.addr}</div>
+          <div style="margin-top:6px;">
+            <span style="display:inline-block;background:#FFF4DC;color:#FF8A5C;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">District Engineering Office</span>
+          </div>
+        </div>
+      `);
+  });
+</script>
+
+
     <div class="c-divider"></div>
 
     <div class="contact-section-head">
-      <div class="csection-label">✉️ Message Us</div>
+      <div class="csection-label">✉︝ Message Us</div>
       <h3>Send a Message</h3>
       <p>Fill out the form and the appropriate office will get back to you as soon as possible.</p>
     </div>
@@ -1597,7 +2461,7 @@
       <div class="form-header">
         <h3>We'd Love to Hear From You</h3>
         <p>All fields marked <strong style="color:var(--orange);">*</strong> are required. Your message goes directly to the relevant DPWH office.</p>
-        <div class="resp-badge">⏱ Average response time: 1–2 business days</div>
+        <div class="resp-badge">❱ Average response time: 1–2 business days</div>
       </div>
       <div class="form-body">
         <form id="contactForm" novalidate>
@@ -1703,6 +2567,7 @@
 </div><!-- /page-contact -->
 
 
+>>>>>>> 4d040148c053508f927b8e507a6e859a18c19e00
   <!-- GOVERNMENT LINKS -->
   <div class="page" id="page-govlinks">
     <div class="page-header">
@@ -1711,7 +2576,7 @@
       <p>Links to official Philippine government websites, partner agencies, and online government services.</p>
     </div>
     <div class="content-body">
-      <div class="empty-icon">🝛︝</div>
+      <div class="empty-icon">🔗</div>
       <h3>Government Links</h3>
       <p>Curated links to the Official Gazette, partner agencies, and Philippine government portals will appear here.</p>
       <span class="coming-soon-badge">Content Coming Soon</span>
@@ -1734,7 +2599,11 @@
       <div class="subpage-tab" onclick="activateSubTab(this,'about-workforce')">Workforce Complement</div>
     </div>
     <div id="about-about-dpwh" class="r-section active">
-  <!-- ══ ABOUT DPWH — FULL CONTENT ══ -->
+<<<<<<< HEAD
+      <div class="content-body"><div class="empty-icon">🏢</div><h3>About DPWH</h3><p>The Department's mandate, vision, mission, core values, and organizational overview.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+    </div>
+=======
+  <!-- ╝╝ ABOUT DPWH — FULL CONTENT ╝╝ -->
   <div id="about-about-dpwh" class="r-section active">
     <div class="about-wrap">
 
@@ -1799,7 +2668,7 @@
               <div class="right-item-name">Quality</div>
             </div>
             <div class="right-item">
-              <div class="right-item-icon">⏱️</div>
+              <div class="right-item-icon">❱︝</div>
               <div class="right-item-tag">Right</div>
               <div class="right-item-name">On Time</div>
             </div>
@@ -1827,6 +2696,7 @@
       </div><!-- /about-inner -->
     </div><!-- /about-wrap -->
   </div><!-- /about-about-dpwh -->    </div>
+>>>>>>> 4d040148c053508f927b8e507a6e859a18c19e00
     <div id="about-history" class="r-section">
       <div class="content-body"><div class="empty-icon">📜</div><h3>History</h3><p>The rich history of public works development in the Philippines from pre-colonial times to the present.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
@@ -1889,7 +2759,7 @@
       <div class="content-body"><div class="empty-icon">📋</div><h3>Job Vacancies</h3><p>Current job openings in DPWH central office and all regional offices across the Philippines.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="careers-how-to-apply" class="r-section">
-      <div class="content-body"><div class="empty-icon">✝︝</div><h3>How to Apply</h3><p>Step-by-step guide on the civil service application process, requirements, and submission procedures.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">✍</div><h3>How to Apply</h3><p>Step-by-step guide on the civil service application process, requirements, and submission procedures.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
   </div>
 
@@ -1902,43 +2772,37 @@
     </div>
     <div class="subpage-tabs" style="flex-wrap:wrap;">
       <div class="subpage-tab active" onclick="activateSubTab(this,'references-atlas')">DPWH ATLAS</div>
-      <div class="subpage-tab" onclick="activateSubTab(this,'references-rbi')">Road & Bridge Inventory</div>
+      <div class="subpage-tab" onclick="activateSubTab(this,'references-rbi')">Road &amp; Bridge Inventory</div>
       <div class="subpage-tab" onclick="activateSubTab(this,'references-streamms')">StreamMS</div>
       <div class="subpage-tab" onclick="activateSubTab(this,'references-laws')">Laws, Codes, Orders</div>
-      <div class="subpage-tab" onclick="activateSubTab(this,'references-guidelines')">Guidelines & Manuals</div>
+      <div class="subpage-tab" onclick="activateSubTab(this,'references-guidelines')">Guidelines &amp; Manuals</div>
       <div class="subpage-tab" onclick="activateSubTab(this,'references-standard-design')">Standard Design</div>
       <div class="subpage-tab" onclick="activateSubTab(this,'references-reports')">Reports</div>
       <div class="subpage-tab" onclick="activateSubTab(this,'references-issuances')">Issuances</div>
     </div>
     <div id="references-atlas" class="r-section active">
-      <div class="content-body"><div class="content-text"><h3>DPWH ATLAS</h3><p class="subtitle">Compiled by the Statistics Division • Planning Service</p>
-        <p>Infrastructure is the foundation of a strong Republic. It facilitates economic activity, enhances mobility, improves living conditions and contributes to the achievement of social justice which are deemed key factors that will help maximize opportunities and realize potentials of the Filipino people. Through the years, the Department of Public Works and Highways (DPWH) has implemented various infrastructure projects under its manifold programs. <p>
-          <p>This 2025 version of the DPWH Infrastructure Atlas presents updated information on the current characteristics and condition of our country’s vital infrastructures, specifically roads and bridges, on a national, regional and per district engineering office basis on a ten-year basis from CY 2015 to CY 2025 and from base year 2007 for bridges. It is comprised of two (2) parts each dedicated to providing detailed information on national roads (Volume I) and bridges (Volume II). Said information are condensed and laid out in matrices and through maps presented in Open Street and National Geographic World base maps for roads and bridges, respectively. <p>
-            <p>Being aware of the significant application of infrastructure statistics, this Department, thru the Statistics Division, Planning Service with the participation of District Engineering Offices (DEOs) under the supervision of Regional Offices (ROs), has undertaken concerted effort to provide updated information on the current progress of national roads and bridges through the DPWH Atlas. Information contained herein is laid out in such a way as to provide users a clear idea on the infrastructure data being presented. Illustrations like maps, graphs, figures and tables were enhanced to easily identify and compare statistics. <p>
-          <p>As one of the DPWH’s contributions in promoting the public’s right to information which covers matters of public concern, this report presents road and bridge inventory data/information useful to planners, researchers, policy and decision-makers.<p>
-        <p>Thus, it is our ardent hope and desire that this work, modest as it may seem, will serve its purpose.</p></div>
-      </div>
+      <div class="content-body"><div class="empty-icon">🗺</div><h3>DPWH ATLAS</h3><p>The DPWH Atlas is an interactive mapping platform for visualizing national road networks and infrastructure data.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-rbi" class="r-section">
-      <div class="content-body"><div class="empty-icon">🛣︝</div><div class="content-text"><h3>Road and Bridge Inventory</h3><p class="subtitle">National asset registry with road and bridge condition overview.</p><p>Comprehensive national database of all roads and bridges under DPWH jurisdiction, with condition reports.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">🛣</div><h3>Road and Bridge Inventory</h3><p>Comprehensive national database of all roads and bridges under DPWH jurisdiction, with condition reports.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-streamms" class="r-section">
-      <div class="content-body"><div class="empty-icon">🌊</div><div class="content-text"><h3>StreamMS</h3><p class="subtitle">Flood control monitoring, river flow analysis, and watershed management.</p><p>Stream Management System for flood control monitoring, river data, and waterway infrastructure management.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">🌊</div><h3>StreamMS</h3><p>Stream Management System for flood control monitoring, river data, and waterway infrastructure management.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-laws" class="r-section">
-      <div class="content-body"><div class="empty-icon">⚖︝</div><div class="content-text"><h3>Laws, Codes, Orders</h3><p class="subtitle">Legal framework and policy documents for DPWH operations.</p><p>Repository of Republic Acts, Executive Orders, administrative codes, and regulations governing DPWH operations.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">⚖</div><h3>Laws, Codes, Orders</h3><p>Repository of Republic Acts, Executive Orders, administrative codes, and regulations governing DPWH operations.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-guidelines" class="r-section">
-      <div class="content-body"><div class="empty-icon">📘</div><div class="content-text"><h3>Guidelines and Manuals</h3><p class="subtitle">Engineering standards, manuals, and procedural guides.</p><p>Technical manuals, engineering guidelines, standard operating procedures, and policy documents.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">📘</div><h3>Guidelines and Manuals</h3><p>Technical manuals, engineering guidelines, standard operating procedures, and policy documents.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-standard-design" class="r-section">
-      <div class="content-body"><div class="empty-icon">📝</div><div class="content-text"><h3>Standard Design</h3><p class="subtitle">Design templates and standard specifications for public works.</p><p>DPWH standard design templates for roads, bridges, buildings, and other infrastructure components.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">📐</div><h3>Standard Design</h3><p>DPWH standard design templates for roads, bridges, buildings, and other infrastructure components.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-reports" class="r-section">
-      <div class="content-body"><div class="empty-icon">📊</div><div class="content-text"><h3>Reports</h3><p class="subtitle">Performance, audit, and accomplishment reporting.</p><p>Annual reports, accomplishment reports, audit findings, and performance evaluation documents.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">📊</div><h3>Reports</h3><p>Annual reports, accomplishment reports, audit findings, and performance evaluation documents.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
     <div id="references-issuances" class="r-section">
-      <div class="content-body"><div class="empty-icon">📄</div><div class="content-text"><h3>Issuances</h3><p class="subtitle">Department Orders, Memorandum Circulars, and official directives.</p><p>Department Orders, Memorandum Circulars, and official issuances from the Office of the Secretary.</p></div><span class="coming-soon-badge">Content Coming Soon</span></div>
+      <div class="content-body"><div class="empty-icon">📄</div><h3>Issuances</h3><p>Department Orders, Memorandum Circulars, and official issuances from the Office of the Secretary.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
     </div>
   </div>
 
@@ -1955,7 +2819,7 @@
     </div>
     <div id="regional-detail" style="display:none;">
       <div style="margin-bottom:16px;">
-        <button class="btn-primary" onclick="backToRegions()" style="font-size:12px;padding:8px 16px;">↝ Back to All Regions</button>
+        <button class="btn-primary" onclick="backToRegions()" style="font-size:12px;padding:8px 16px;">← Back to All Regions</button>
       </div>
       <div class="subpage-tabs">
         <div class="subpage-tab active" onclick="activateRegionTab(this,'rdetail-news')">News</div>
@@ -1973,7 +2837,7 @@
         <div class="content-body"><div class="empty-icon">📋</div><h3>Annual Procurement Plan</h3><p>The Annual Procurement Plan (APP) for this regional office, including all planned procurements for the fiscal year.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
       </div>
       <div id="rdetail-projects" class="r-section">
-        <div class="content-body"><div class="empty-icon">🝗︝</div><h3>Regional Projects</h3><p>Infrastructure projects being implemented by this regional office, with location, status, and funding details.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
+        <div class="content-body"><div class="empty-icon">🏗</div><h3>Regional Projects</h3><p>Infrastructure projects being implemented by this regional office, with location, status, and funding details.</p><span class="coming-soon-badge">Content Coming Soon</span></div>
       </div>
     </div>
   </div>
@@ -1996,7 +2860,7 @@
     </div>
     <div class="footer-col">
       <h4>References</h4>
-      <a onclick="showSubpage('references','laws')">Laws & Orders</a>
+      <a onclick="showSubpage('references','laws')">Laws &amp; Orders</a>
       <a onclick="showSubpage('references','guidelines')">Manuals</a>
       <a onclick="showSubpage('references','reports')">Reports</a>
       <a onclick="showSubpage('references','issuances')">Issuances</a>
@@ -2017,36 +2881,35 @@
 
 <script>
 const regions = [
-  { code: 'NCR', name: 'National Capital Region' },
-  { code: 'CAR', name: 'Cordillera Administrative Region' },
-  { code: 'I', name: 'Ilocos Region' },
-  { code: 'II', name: 'Cagayan Valley' },
-  { code: 'III', name: 'Central Luzon' },
+  { code: 'NCR',  name: 'National Capital Region' },
+  { code: 'CAR',  name: 'Cordillera Administrative Region' },
+  { code: 'I',    name: 'Ilocos Region' },
+  { code: 'II',   name: 'Cagayan Valley' },
+  { code: 'III',  name: 'Central Luzon' },
   { code: 'IV-A', name: 'CALABARZON' },
   { code: 'IV-B', name: 'MIMAROPA' },
-  { code: 'V', name: 'Bicol Region' },
-  { code: 'VI', name: 'Western Visayas' },
-  { code: 'VII', name: 'Central Visayas' },
+  { code: 'V',    name: 'Bicol Region' },
+  { code: 'VI',   name: 'Western Visayas' },
+  { code: 'VII',  name: 'Central Visayas' },
   { code: 'VIII', name: 'Eastern Visayas' },
-  { code: 'IX', name: 'Zamboanga Peninsula' },
-  { code: 'X', name: 'Northern Mindanao' },
-  { code: 'XI', name: 'Davao Region' },
-  { code: 'XII', name: 'SOCCSKSARGEN' },
+  { code: 'IX',   name: 'Zamboanga Peninsula' },
+  { code: 'X',    name: 'Northern Mindanao' },
+  { code: 'XI',   name: 'Davao Region' },
+  { code: 'XII',  name: 'SOCCSKSARGEN' },
   { code: 'XIII', name: 'Caraga' },
-  { code: 'BARMM', name: 'Bangsamoro Autonomous Region' },
+  { code: 'BARMM',name: 'Bangsamoro Autonomous Region' },
 ];
 
-// Build region cards
-const regionCards = document.getElementById('region-cards');
+const regionCards   = document.getElementById('region-cards');
 const regionNavLinks = document.getElementById('region-nav-links');
+
 regions.forEach(r => {
-  // Main page cards
   const card = document.createElement('div');
   card.className = 'region-card';
   card.innerHTML = `<div class="region-code">Region ${r.code}</div><div class="region-name">${r.name}</div>`;
   card.onclick = () => openRegion(r);
   regionCards.appendChild(card);
-  // Nav dropdown links
+
   const link = document.createElement('a');
   link.textContent = `Region ${r.code} – ${r.name}`;
   link.onclick = () => { showPage('regional'); openRegion(r); };
@@ -2057,9 +2920,8 @@ function openRegion(r) {
   document.getElementById('regional-list').style.display = 'none';
   document.getElementById('regional-detail').style.display = 'block';
   document.getElementById('region-news-title').textContent = `Region ${r.code} News`;
-  // Reset tabs
-  document.querySelectorAll('#regional-detail .subpage-tab').forEach((t,i) => t.classList.toggle('active', i===0));
-  document.querySelectorAll('#regional-detail .r-section').forEach((s,i) => s.classList.toggle('active', i===0));
+  document.querySelectorAll('#regional-detail .subpage-tab').forEach((t,i) => t.classList.toggle('active', i === 0));
+  document.querySelectorAll('#regional-detail .r-section').forEach((s,i) => s.classList.toggle('active', i === 0));
 }
 
 function backToRegions() {
@@ -2077,16 +2939,12 @@ function showPage(id) {
 function showSubpage(page, sub) {
   showPage(page);
   const tabId = page + '-' + sub;
-  // Find and activate the tab
   const parent = document.getElementById('page-' + page);
   if (!parent) return;
-  const tabs = parent.querySelectorAll('.subpage-tab');
-  const sections = parent.querySelectorAll('.r-section');
-  tabs.forEach(t => {
-    const matches = t.getAttribute('onclick') && t.getAttribute('onclick').includes(tabId);
-    t.classList.toggle('active', matches);
+  parent.querySelectorAll('.subpage-tab').forEach(t => {
+    t.classList.toggle('active', t.getAttribute('onclick') && t.getAttribute('onclick').includes(tabId));
   });
-  sections.forEach(s => s.classList.toggle('active', s.id === tabId));
+  parent.querySelectorAll('.r-section').forEach(s => s.classList.toggle('active', s.id === tabId));
 }
 
 function activateSubTab(el, targetId) {
@@ -2106,19 +2964,17 @@ function activateRegionTab(el, targetId) {
   if (target) target.classList.add('active');
 }
 
-// Contact form submit
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('.btn-send');
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-  setTimeout(() => {
-    document.getElementById('formSuccess').classList.add('show');
-    btn.innerHTML = '✓ Sent';
-    btn.style.background = '#166534';
-  }, 1200);
-});
+/* Transparency page accordion */
+function toggleAcc(header) {
+  header.closest('.acc-item').classList.toggle('open');
+}
 
+/* Year tabs in Section II */
+function switchYear(btn) {
+  btn.closest('.year-tabs').querySelectorAll('.ytab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  /* Wire up actual year-filtered content here when data is ready */
+}
 </script>
 </body>
 </html>

@@ -1205,20 +1205,149 @@
         <p>The Central Office is in Manila. Regional and District Engineering Offices serve communities across all provinces.</p>
       </div>
 
-      <div class="map-wrap">
-        <iframe
-          class="map-frame"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6955671637745!2d120.97660527585795!3d14.588208885914498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca155a1ffc5b%3A0xfc4d61f67b3e67!2sDepartment%20of%20Public%20Works%20and%20Highways!5e0!3m2!1sen!2sph!4v1714638000000!5m2!1sen!2sph"
-          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="DPWH Office Locations">
-        </iframe>
-        <div class="map-legend">
-          <span class="legend-head">Legend</span>
-          <span class="legend-item"><span class="ldot ldot-main"></span> Central Office</span>
-          <span class="legend-item"><span class="ldot ldot-region"></span> Regional Office</span>
-          <span class="legend-item"><span class="ldot ldot-dist"></span> District Engineering Office</span>
+      <!-- MAP -->
+<div class="map-wrap">
+  <div id="dpwh-map" style="width:100%; height:420px;"></div>
+  <div class="map-legend">
+    <span class="legend-head">Legend</span>
+    <span class="legend-item"><span class="ldot ldot-main"></span> Central Office</span>
+    <span class="legend-item"><span class="ldot ldot-region"></span> Regional Office</span>
+    <span class="legend-item"><span class="ldot ldot-dist"></span> District Engineering Office</span>
+  </div>
+</div>
+
+<!-- Leaflet CSS & JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  // Initialize map centered on Philippines
+  const map = L.map('dpwh-map', {
+    center: [12.8797, 121.7740],
+    zoom: 6,
+    scrollWheelZoom: false
+  });
+
+  // OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  // Custom marker icons
+  function makeIcon(color) {
+    return L.divIcon({
+      className: '',
+      html: `<div style="
+        width: 14px; height: 14px;
+        background: ${color};
+        border: 2.5px solid white;
+        border-radius: 50%;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+      "></div>`,
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+      popupAnchor: [0, -10]
+    });
+  }
+
+  const iconMain   = makeIcon('#E53E3E');  // red   — Central Office
+  const iconRegion = makeIcon('#2438A6');  // blue  — Regional Office
+  const iconDist   = makeIcon('#FF8A5C');  // orange — District Office
+
+  // ── CENTRAL OFFICE ──
+  const centralOffices = [
+    { name: 'DPWH Central Office', lat: 14.5883, lng: 120.9784, addr: 'Bonifacio Drive, Port Area, Manila' },
+  ];
+
+  // ── REGIONAL OFFICES ──
+  const regionalOffices = [
+    { name: 'DPWH NCR Regional Office',   lat: 14.5995, lng: 120.9842, addr: 'Manila, NCR' },
+    { name: 'DPWH Region I',              lat: 16.0833, lng: 120.6200, addr: 'San Fernando, La Union' },
+    { name: 'DPWH Region II',             lat: 17.6132, lng: 121.7270, addr: 'Tuguegarao, Cagayan' },
+    { name: 'DPWH Region III',            lat: 15.1450, lng: 120.5960, addr: 'San Fernando, Pampanga' },
+    { name: 'DPWH Region IV-A',           lat: 14.0507, lng: 121.3190, addr: 'Calamba, Laguna' },
+    { name: 'DPWH Region IV-B',           lat: 13.4417, lng: 121.0390, addr: 'Calapan, Oriental Mindoro' },
+    { name: 'DPWH Region V',              lat: 13.1391, lng: 123.7438, addr: 'Legazpi, Albay' },
+    { name: 'DPWH Region VI',             lat: 10.7202, lng: 122.5621, addr: 'Iloilo City' },
+    { name: 'DPWH Region VII',            lat: 10.3157, lng: 123.8854, addr: 'Cebu City' },
+    { name: 'DPWH Region VIII',           lat: 11.2442, lng: 125.0039, addr: 'Tacloban, Leyte' },
+    { name: 'DPWH Region IX',             lat: 6.9214,  lng: 122.0790, addr: 'Zamboanga City' },
+    { name: 'DPWH Region X',              lat: 8.4542,  lng: 124.6319, addr: 'Cagayan de Oro' },
+    { name: 'DPWH Region XI',             lat: 7.1907,  lng: 125.4553, addr: 'Davao City' },
+    { name: 'DPWH Region XII',            lat: 6.2888,  lng: 124.9940, addr: 'Koronadal, South Cotabato' },
+    { name: 'DPWH Region XIII (CARAGA)',  lat: 8.9475,  lng: 125.5435, addr: 'Butuan City' },
+    { name: 'DPWH CAR',                   lat: 16.4023, lng: 120.5960, addr: 'Baguio City' },
+    { name: 'DPWH BARMM',                 lat: 7.2047,  lng: 124.2310, addr: 'Cotabato City' },
+  ];
+
+  // ── DISTRICT ENGINEERING OFFICES (sample) ──
+  const districtOffices = [
+    { name: 'Manila 1st DEO',        lat: 14.6042, lng: 120.9822, addr: 'Manila' },
+    { name: 'Quezon City DEO',        lat: 14.6760, lng: 121.0437, addr: 'Quezon City' },
+    { name: 'Makati DEO',             lat: 14.5547, lng: 121.0244, addr: 'Makati' },
+    { name: 'Caloocan DEO',           lat: 14.6573, lng: 120.9675, addr: 'Caloocan' },
+    { name: 'Batangas DEO',           lat: 13.7565, lng: 121.0583, addr: 'Batangas City' },
+    { name: 'Baguio City DEO',        lat: 16.4023, lng: 120.5960, addr: 'Baguio City' },
+    { name: 'Dagupan DEO',            lat: 16.0433, lng: 120.3338, addr: 'Dagupan, Pangasinan' },
+    { name: 'Angeles City DEO',       lat: 15.1450, lng: 120.5887, addr: 'Angeles, Pampanga' },
+    { name: 'Lucena DEO',             lat: 13.9302, lng: 121.6170, addr: 'Lucena, Quezon' },
+    { name: 'Naga City DEO',          lat: 13.6218, lng: 123.1945, addr: 'Naga, Camarines Sur' },
+    { name: 'Iloilo DEO',             lat: 10.6969, lng: 122.5644, addr: 'Iloilo City' },
+    { name: 'Bacolod DEO',            lat: 10.6713, lng: 122.9511, addr: 'Bacolod, Negros Occidental' },
+    { name: 'Cebu City DEO',          lat: 10.3000, lng: 123.9000, addr: 'Cebu City' },
+    { name: 'Dumaguete DEO',          lat: 9.3068,  lng: 123.3054, addr: 'Dumaguete, Negros Oriental' },
+    { name: 'Zamboanga City DEO',     lat: 6.9214,  lng: 122.0790, addr: 'Zamboanga City' },
+    { name: 'General Santos DEO',     lat: 6.1164,  lng: 125.1716, addr: 'General Santos City' },
+    { name: 'Davao City DEO',         lat: 7.0731,  lng: 125.6128, addr: 'Davao City' },
+    { name: 'Cagayan de Oro DEO',     lat: 8.4822,  lng: 124.6472, addr: 'Cagayan de Oro' },
+    { name: 'Butuan DEO',             lat: 8.9475,  lng: 125.5435, addr: 'Butuan City' },
+    { name: 'Cotabato DEO',           lat: 7.2047,  lng: 124.2310, addr: 'Cotabato City' },
+  ];
+
+  // Add markers
+  centralOffices.forEach(o => {
+    L.marker([o.lat, o.lng], { icon: iconMain })
+      .addTo(map)
+      .bindPopup(`
+        <div style="font-family:'DM Sans',sans-serif;min-width:180px;">
+          <div style="font-weight:700;font-size:13px;color:#0B1A4A;margin-bottom:4px;">${o.name}</div>
+          <div style="font-size:11.5px;color:#5A6A9A;">${o.addr}</div>
+          <div style="margin-top:6px;">
+            <span style="display:inline-block;background:#FFF0E9;color:#E53E3E;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">Central Office</span>
+          </div>
         </div>
-      </div>
+      `);
+  });
+
+  regionalOffices.forEach(o => {
+    L.marker([o.lat, o.lng], { icon: iconRegion })
+      .addTo(map)
+      .bindPopup(`
+        <div style="font-family:'DM Sans',sans-serif;min-width:180px;">
+          <div style="font-weight:700;font-size:13px;color:#0B1A4A;margin-bottom:4px;">${o.name}</div>
+          <div style="font-size:11.5px;color:#5A6A9A;">${o.addr}</div>
+          <div style="margin-top:6px;">
+            <span style="display:inline-block;background:#F0F3FF;color:#2438A6;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">Regional Office</span>
+          </div>
+        </div>
+      `);
+  });
+
+  districtOffices.forEach(o => {
+    L.marker([o.lat, o.lng], { icon: iconDist })
+      .addTo(map)
+      .bindPopup(`
+        <div style="font-family:'DM Sans',sans-serif;min-width:180px;">
+          <div style="font-weight:700;font-size:13px;color:#0B1A4A;margin-bottom:4px;">${o.name}</div>
+          <div style="font-size:11.5px;color:#5A6A9A;">${o.addr}</div>
+          <div style="margin-top:6px;">
+            <span style="display:inline-block;background:#FFF4DC;color:#FF8A5C;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;">District Engineering Office</span>
+          </div>
+        </div>
+      `);
+  });
+</script>
+
 
       <div class="c-divider"></div>
 

@@ -642,6 +642,339 @@
   .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; color: rgba(200,208,232,0.6); }
   .footer-bottom .gov-ph { color: var(--orange); font-weight: 600; }
 
+  /* ============================================================
+   VACANCIES-SPECIFIC STYLES
+   ============================================================ */
+
+/* ── FILTER PANEL ── */
+.filter-panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 12px rgba(11,26,74,0.06);
+}
+.filter-panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
+}
+.filter-panel-title {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--textlt);
+  display: flex; align-items: center; gap: 7px;
+}
+.filter-panel-title::before {
+  content: ''; width: 4px; height: 14px;
+  background: var(--orange); border-radius: 2px;
+}
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px; margin-bottom: 14px;
+}
+.filter-group { display: flex; flex-direction: column; gap: 5px; }
+.filter-group label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--textlt);
+}
+.filter-group select, .filter-group input[type="text"] {
+  background: var(--light);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 11px;
+  font-family: var(--font-sans);
+  font-size: 13px; color: var(--text);
+  outline: none; width: 100%;
+  transition: border-color 0.18s, background 0.18s;
+  appearance: none;
+}
+.filter-group select:focus, .filter-group input[type="text"]:focus {
+  border-color: var(--blue); background: var(--white);
+  box-shadow: 0 0 0 3px rgba(76,110,245,0.12);
+}
+.filter-search-wrap { position: relative; }
+.filter-search-wrap svg {
+  position: absolute; left: 10px; top: 50%;
+  transform: translateY(-50%); width: 14px; height: 14px;
+  color: var(--textlt); pointer-events: none;
+}
+.filter-search-wrap input { padding-left: 32px !important; }
+
+.filter-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.btn-filter-apply {
+  background: var(--royal); color: var(--white);
+  border: none; border-radius: 6px;
+  padding: 8px 20px; font-family: var(--font-sans);
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: background 0.18s;
+}
+.btn-filter-apply:hover { background: var(--navy); }
+.btn-filter-reset {
+  background: var(--light); color: var(--textlt);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 8px 16px; font-family: var(--font-sans);
+  font-size: 13px; font-weight: 500; cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-filter-reset:hover { border-color: var(--blue); color: var(--royal); }
+
+/* ── QUICK CATEGORY CHIPS ── */
+.chip-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+.chip {
+  padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 500;
+  border: 1px solid var(--border); background: var(--white);
+  color: var(--textlt); cursor: pointer; transition: all 0.15s; user-select: none;
+}
+.chip:hover { border-color: var(--blue); color: var(--royal); background: var(--light); }
+.chip.active { background: var(--royal); border-color: var(--royal); color: var(--white); }
+
+/* ── RESULTS META ── */
+.results-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
+}
+.results-count { font-size: 13.5px; color: var(--textlt); }
+.results-count strong { color: var(--navy); font-weight: 600; }
+.sort-wrap { display: flex; align-items: center; gap: 8px; }
+.sort-label { font-size: 12px; color: var(--textlt); }
+.sort-select {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 6px; padding: 6px 12px;
+  font-family: var(--font-sans); font-size: 13px;
+  color: var(--text); outline: none; cursor: pointer;
+}
+
+/* ── JOB CARDS GRID ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(355px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+/* ── JOB CARD ── */
+.job-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 2px 8px rgba(11,26,74,0.05);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+}
+.job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(36,56,166,0.13);
+  border-color: rgba(76,110,245,0.35);
+}
+.job-card::before {
+  content: '';
+  display: block; height: 3px; width: 100%;
+  background: var(--cat-accent, var(--blue));
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+.card-body { padding: 18px 20px 0; flex: 1; }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.cat-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 4px;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em;
+  background: var(--cat-bg, var(--light));
+  color: var(--cat-fg, var(--royal));
+  border: 1px solid var(--cat-border, rgba(76,110,245,0.2));
+}
+.btn-save {
+  background: none; border: 1px solid var(--border);
+  border-radius: 6px; width: 30px; height: 30px;
+  display: grid; place-items: center;
+  cursor: pointer; font-size: 14px; color: var(--textlt);
+  transition: all 0.18s; flex-shrink: 0;
+}
+.btn-save:hover { border-color: var(--orange); color: var(--orange); background: rgba(255,138,92,0.08); }
+.btn-save.saved { border-color: var(--orange); color: var(--orange); background: rgba(255,138,92,0.08); }
+.card-title {
+  font-family: var(--font-serif); font-size: 16px; font-weight: 600;
+  color: var(--navy); line-height: 1.3; margin-bottom: 4px;
+}
+.card-item-no { font-size: 11px; color: var(--textlt); margin-bottom: 13px; }
+.card-meta { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.meta-row { display: flex; gap: 9px; align-items: flex-start; font-size: 13px; color: var(--textlt); }
+.meta-icon { font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+.meta-content { display: flex; flex-direction: column; gap: 1px; }
+.meta-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--textlt); line-height: 1;
+}
+.meta-val { font-size: 13px; color: var(--text); line-height: 1.35; }
+.sg-badge {
+  display: inline-block;
+  background: var(--light); color: var(--royal);
+  font-size: 11px; font-weight: 700; padding: 3px 9px;
+  border-radius: 4px; border: 1px solid rgba(76,110,245,0.2);
+}
+.deadline-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px; border-radius: 4px;
+  font-size: 11px; font-weight: 700;
+}
+.deadline-badge.urgent { background: #FEE2E2; color: #991B1B; border: 1px solid rgba(153,27,27,0.2); }
+.deadline-badge.soon   { background: #FEF9C3; color: #854D0E; border: 1px solid rgba(133,77,14,0.2); }
+.deadline-badge.ok     { background: #DCFCE7; color: #166534; border: 1px solid rgba(22,101,52,0.2); }
+
+/* ── COLLAPSIBLE REQUIREMENTS ── */
+.req-toggle {
+  width: 100%; background: none;
+  border: none; border-top: 1px solid var(--border);
+  padding: 11px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer; font-family: var(--font-sans);
+  font-size: 12.5px; font-weight: 600; color: var(--textlt);
+  transition: background 0.15s, color 0.15s; text-align: left;
+}
+.req-toggle:hover { background: var(--light); color: var(--royal); }
+.req-arrow { font-size: 11px; transition: transform 0.22s; flex-shrink: 0; }
+.req-arrow.open { transform: rotate(180deg); }
+.req-body {
+  overflow: hidden; max-height: 0;
+  transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1);
+  background: #FAFBFF;
+}
+.req-body.open { max-height: 400px; }
+.req-list { padding: 6px 20px 16px; display: flex; flex-direction: column; gap: 9px; }
+.req-item { display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; color: var(--textlt); }
+.req-item-icon { font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+.req-item-body { display: flex; flex-direction: column; gap: 1px; }
+.req-item-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--navy);
+}
+
+/* ── CARD FOOTER ── */
+.card-footer {
+  padding: 12px 20px; display: flex; gap: 8px;
+  border-top: 1px solid var(--border);
+  background: #FAFBFF;
+}
+.btn-apply {
+  flex: 1; background: var(--royal); color: var(--white);
+  border: none; border-radius: 6px;
+  padding: 9px 14px; font-family: var(--font-sans);
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: background 0.18s; display: flex;
+  align-items: center; justify-content: center; gap: 6px;
+  text-decoration: none;
+}
+.btn-apply:hover { background: var(--navy); }
+.btn-details {
+  background: transparent; border: 1.5px solid var(--border);
+  border-radius: 6px; padding: 9px 14px;
+  font-family: var(--font-sans); font-size: 13px;
+  font-weight: 500; color: var(--textlt); cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-details:hover { border-color: var(--blue); color: var(--royal); }
+
+/* ── EMPTY STATE ── */
+.empty-state {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 60px 24px;
+  text-align: center; display: none;
+}
+.empty-state.visible { display: block; }
+.empty-icon-wrap { width: 60px; height: 60px; background: var(--light); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 16px; }
+.empty-state h3 { font-family: var(--font-serif); font-size: 18px; font-weight: 400; color: var(--navy); margin-bottom: 8px; }
+.empty-state p { font-size: 13.5px; color: var(--textlt); }
+
+/* ── ORS CARD ── */
+.ors-card {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--white);
+  border: 1px solid rgba(76,110,245,0.25);
+  border-left: 4px solid var(--royal);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(11,26,74,0.05);
+  flex-wrap: wrap;
+}
+.ors-card-icon {
+  width: 46px; height: 46px; flex-shrink: 0;
+  background: var(--light); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--royal);
+}
+.ors-card-body { flex: 1; min-width: 160px; }
+.ors-card-label {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 3px;
+}
+.ors-card-title { font-size: 14px; font-weight: 600; color: var(--navy); line-height: 1.3; }
+.ors-card-url { font-size: 12px; color: var(--textlt); margin-top: 2px; }
+.ors-card-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--royal); color: var(--white);
+  border-radius: 7px; padding: 9px 20px;
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600;
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.18s; flex-shrink: 0;
+}
+.ors-card-btn:hover { background: var(--navy); }
+
+/* ── HOW TO APPLY ── */
+.how-to-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 28px; }
+.step-card {
+  background: #EEF1FB;
+  border: 1.5px solid rgba(76,110,245,0.18);
+  border-radius: 14px; padding: 24px 20px;
+  border-top: none; transition: all 0.18s;
+}
+.step-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(36,56,166,0.1); border-color: rgba(76,110,245,0.35); }
+.step-num {
+  width: 38px; height: 38px; background: var(--navy); color: var(--white);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 700; margin-bottom: 16px; font-family: var(--font-sans);
+}
+.step-card h3 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.step-card p { font-size: 13px; color: var(--textlt); line-height: 1.6; }
+.req-docs-list { list-style: none; background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 28px; }
+.req-docs-list li { display: flex; align-items: center; gap: 12px; padding: 13px 18px; border-bottom: 1px solid var(--border); font-size: 13.5px; color: var(--text); }
+.req-docs-list li:last-child { border-bottom: none; }
+.req-docs-list li::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+
+/* ── PAGINATION ── */
+.pagination {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  background: #F5F7FF;
+  padding: 20px 20px 36px;
+  margin: 0 -20px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+.page-btn {
+  width: 36px; height: 36px; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--white);
+  color: var(--textlt); font-size: 13px; font-weight: 500;
+  cursor: pointer; display: grid; place-items: center;
+  transition: all 0.15s; font-family: var(--font-sans);
+  box-shadow: 0 1px 3px rgba(11,26,74,0.07);
+}
+.page-btn:hover, .page-btn.active { background: var(--royal); border-color: var(--royal); color: var(--white); box-shadow: 0 2px 8px rgba(36,56,166,0.2); }
+.page-btn:disabled { opacity: 0.35; cursor: default; box-shadow: none; }
+
+/* ── NOTICE BANNER ── */
+.notice-banner {
+  background: var(--light);
+  border: 1px solid rgba(76,110,245,0.2);
+  border-left: 4px solid var(--blue);
+  border-radius: 8px; padding: 13px 18px;
+  font-size: 13px; color: var(--textlt); margin-bottom: 22px;
+  display: flex; gap: 10px; align-items: flex-start; line-height: 1.55;
+}
+.notice-banner strong { color: var(--navy); }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     header { padding: 14px 18px; }
@@ -2588,7 +2921,7 @@
           };
           return b;
         }
-        pagEl.appendChild(mkBtn('&#8592; Prev', currentPage-1, false, currentPage===1));
+        pagEl.appendChild(mkBtn('Prev', currentPage-1, false, currentPage===1));
         for (let i=1; i<=pages; i++) {
           if (i===1 || i===pages || (i>=currentPage-1 && i<=currentPage+1)) {
             pagEl.appendChild(mkBtn(String(i), i, i===currentPage, false));
@@ -2599,7 +2932,7 @@
             pagEl.appendChild(d);
           }
         }
-        pagEl.appendChild(mkBtn('Next &#8594;', currentPage+1, false, currentPage===pages));
+        pagEl.appendChild(mkBtn('Next', currentPage+1, false, currentPage===pages));
       }
 
       /* ── public API ── */
@@ -3167,7 +3500,7 @@
       };
       return b;
     }
-    pagEl.appendChild(mkBtn('&#8592; Prev', currentPage - 1, false, currentPage === 1));
+    pagEl.appendChild(mkBtn('Prev', currentPage - 1, false, currentPage === 1));
     for (var i = 1; i <= pages; i++) {
       if (i === 1 || i === pages || (i >= currentPage - 1 && i <= currentPage + 1)) {
         pagEl.appendChild(mkBtn(String(i), i, i === currentPage, false));
@@ -3205,13 +3538,238 @@ renderPage();
 
   <!-- CAREERS -->
   <div class="page" id="page-careers">
-    <div class="page-header"><div class="breadcrumb">Home &rsaquo; <span>Careers</span></div><h2>Careers</h2><p>Join the DPWH family. Explore job vacancies and learn how to apply for government service.</p></div>
-    <div class="subpage-tabs">
-      <div class="subpage-tab active" onclick="activateSubTab(this,'careers-vacancies')">Vacancies</div>
-      <div class="subpage-tab" onclick="activateSubTab(this,'careers-how-to-apply')">How to Apply</div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="breadcrumb">Home &rsaquo; <span>Careers</span></div>
+      <h2>Careers at DPWH</h2>
+      <p>Join the Department of Public Works and Highways. Explore open positions across all offices and apply for civil service opportunities in infrastructure development.</p>
     </div>
-    <div id="careers-vacancies" class="r-section active"><div class="content-body"><div class="empty-icon">&#128203;</div><h3>Job Vacancies</h3><p>Current job openings in DPWH central office and all regional offices across the Philippines.</p><span class="coming-soon-badge">Content Coming Soon</span></div></div>
-    <div id="careers-how-to-apply" class="r-section"><div class="content-body"><div class="empty-icon">&#9997;&#65039;</div><h3>How to Apply</h3><p>Step-by-step guide on the civil service application process, requirements, and submission procedures.</p><span class="coming-soon-badge">Content Coming Soon</span></div></div>
+
+    <!-- SUBPAGE TABS -->
+    <div class="subpage-tabs">
+      <div class="subpage-tab active" id="tab-vacancies" onclick="switchTab('vacancies')">&#128203; Vacancies</div>
+      <div class="subpage-tab" id="tab-how-to-apply" onclick="switchTab('how-to-apply')">&#9997;&#65039; How to Apply</div>
+    </div>
+
+    <!-- ══════════════════════════
+         TAB: VACANCIES
+    ══════════════════════════ -->
+    <div class="r-section active" id="section-vacancies">
+
+      <div class="notice-banner">
+        &#128276;&nbsp;<span><strong>Application Notice:</strong> All applications must be submitted to the Human Resource &amp; Administrative Service (HRAS). Ensure all required documents are complete before the deadline. Incomplete submissions will not be processed.</span>
+      </div>
+
+      <!-- FILTER PANEL -->
+      <div class="filter-panel">
+        <div class="filter-panel-header">
+          <div class="filter-panel-title">Filter Vacancies</div>
+          <div class="results-meta" style="margin-bottom:0;">
+            <span class="results-count">Showing <strong id="resultCount">0</strong> of <strong id="totalCount">0</strong> vacancies</span>
+          </div>
+        </div>
+        <div class="filter-grid">
+          <div class="filter-group" style="grid-column: span 2;">
+            <label for="searchInput">Search</label>
+            <div class="filter-search-wrap">
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <input type="text" id="searchInput" placeholder="Search by position, bureau, item no…" oninput="applyFilters()">
+            </div>
+          </div>
+          <div class="filter-group">
+            <label for="filterRegion">Region / Office</label>
+            <select id="filterRegion" onchange="applyFilters()">
+              <option value="">All Offices</option>
+              <option value="Central Office">Central Office</option>
+              <optgroup label="─── Regional Offices ───" disabled></optgroup>
+              <option value="NCR">NCR – National Capital Region</option>
+              <option value="CAR">CAR – Cordillera Administrative Region</option>
+              <option value="Region I">Region I – Ilocos</option>
+              <option value="Region II">Region II – Cagayan Valley</option>
+              <option value="Region III">Region III – Central Luzon</option>
+              <option value="Region IV-A">Region IV-A – CALABARZON</option>
+              <option value="Region IV-B">Region IV-B – MIMAROPA</option>
+              <option value="Region V">Region V – Bicol</option>
+              <option value="Region VI">Region VI – Western Visayas</option>
+              <option value="Region VII">Region VII – Central Visayas</option>
+              <option value="Region VIII">Region VIII – Eastern Visayas</option>
+              <option value="Region IX">Region IX – Zamboanga Peninsula</option>
+              <option value="Region X">Region X – Northern Mindanao</option>
+              <option value="Region XI">Region XI – Davao Region</option>
+              <option value="Region XII">Region XII – SOCCSKSARGEN</option>
+              <option value="Region XIII">Region XIII – Caraga</option>
+              <option value="BARMM">BARMM – Bangsamoro Autonomous Region</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterCategory">Category</label>
+            <select id="filterCategory" onchange="applyFilters()">
+              <option value="">All Categories</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Administration">Administration</option>
+              <option value="Architecture">Architecture</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterSG">Salary Grade</label>
+            <select id="filterSG" onchange="applyFilters()">
+              <option value="">All Grades</option>
+              <option value="8">SG 8</option>
+              <option value="13">SG 13</option>
+              <option value="14">SG 14</option>
+              <option value="15">SG 15</option>
+              <option value="16">SG 16</option>
+              <option value="19">SG 19</option>
+              <option value="22">SG 22</option>
+              <option value="24">SG 24</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filterDeadline">Closing</label>
+            <select id="filterDeadline" onchange="applyFilters()">
+              <option value="">Any Date</option>
+              <option value="urgent">Closing Soon (≤7 days)</option>
+              <option value="soon">Within 2 Weeks</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn-filter-apply" onclick="applyFilters()">Apply Filters</button>
+          <button class="btn-filter-reset" onclick="resetFilters()">Reset</button>
+          <div class="sort-wrap" style="margin-left:auto;">
+            <span class="sort-label">Sort by:</span>
+            <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+              <option value="latest">Latest Posted</option>
+              <option value="deadline">Nearest Deadline</option>
+              <option value="sg-asc">Salary Grade ↑</option>
+              <option value="sg-desc">Salary Grade ↓</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUICK CATEGORY CHIPS -->
+      <div class="chip-row" role="group" aria-label="Filter by category">
+        <div class="chip active" onclick="chipFilter(this,'')" data-cat="">All</div>
+        <div class="chip" onclick="chipFilter(this,'Engineering')" data-cat="Engineering">⚙️ Engineering</div>
+        <div class="chip" onclick="chipFilter(this,'Information Technology')" data-cat="Information Technology">💻 IT</div>
+        <div class="chip" onclick="chipFilter(this,'Administration')" data-cat="Administration">📁 Administration</div>
+        <div class="chip" onclick="chipFilter(this,'Architecture')" data-cat="Architecture">🏛️ Architecture</div>
+      </div>
+
+      <!-- CARDS GRID -->
+      <div class="cards-grid" id="cardsGrid" aria-live="polite" aria-label="Job listings"></div>
+
+      <!-- EMPTY STATE -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon-wrap">🔍</div>
+        <h3>No Vacancies Found</h3>
+        <p>No positions match your current filters. Try adjusting your search criteria.</p>
+      </div>
+
+      <!-- PAGINATION -->
+      <nav class="pagination" aria-label="Pagination" id="paginationNav">
+        <button class="page-btn" id="prevBtn" onclick="changePage(-1)">‹</button>
+        <button class="page-btn active" id="pg1" onclick="goPage(1)">1</button>
+        <button class="page-btn" id="pg2" onclick="goPage(2)">2</button>
+        <button class="page-btn" id="pg3" onclick="goPage(3)">3</button>
+        <button class="page-btn" id="nextBtn" onclick="changePage(1)">›</button>
+      </nav>
+
+    </div><!-- /vacancies -->
+
+    <!-- ══════════════════════════
+         TAB: HOW TO APPLY
+    ══════════════════════════ -->
+    <div class="r-section" id="section-how-to-apply">
+
+      <div class="notice-banner">
+        &#128221;&nbsp;<span><strong>Civil Service Notice:</strong> All positions in DPWH are governed by Civil Service Commission (CSC) rules and regulations. Applicants must meet the qualification standards prescribed for each position.</span>
+      </div>
+
+      <h2 class="section-title">Application Process</h2>
+      <div class="how-to-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Check Qualifications</h3>
+          <p>Review the education, experience, training, and eligibility requirements for your target position. Ensure you meet all minimum qualifications before applying.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Prepare Documents</h3>
+          <p>Gather all required documents including your Personal Data Sheet (CS Form No. 212), performance ratings, and civil service eligibility certificate.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Submit Application</h3>
+          <p>Submit personally or by registered mail to the HRAS — or apply online anytime via the <a href="https://ors.dpwh.gov.ph/#/login" target="_blank" rel="noopener noreferrer" style="color:var(--royal);font-weight:600;text-decoration:none;">DPWH Online Recruitment System (ORS)</a> before the deadline.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <h3>Await Evaluation</h3>
+          <p>The Personnel Selection Board (PSB) will evaluate all applications. Qualified applicants will be notified for written examination and/or interview.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Required Documents</h2>
+      <ul class="req-docs-list">
+        <li>Personal Data Sheet (CS Form No. 212, Revised 2017) with recent passport-sized photo</li>
+        <li>Work Experience Sheet (CSC Form No. 212 Attachment)</li>
+        <li>Performance Rating for the last two (2) rating periods (for government employees)</li>
+        <li>Certified true copy of Civil Service Eligibility / Board Rating / License</li>
+        <li>Certified true copy of Transcript of Records and Diploma</li>
+        <li>Certificate of Training/s attended relevant to the position</li>
+        <li>Certificate of No Pending Administrative/Criminal Case (for internal applicants)</li>
+        <li>Clearances: NBI, Police, Barangay (for external applicants)</li>
+      </ul>
+
+      <h2 class="section-title">Where to Submit</h2>
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px 28px;margin-bottom:28px;">
+        <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="flex:1;min-width:220px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--textlt);margin-bottom:6px;">Office</div>
+            <div style="font-size:14px;font-weight:600;color:var(--navy);margin-bottom:4px;">Human Resource &amp; Administrative Service</div>
+            <div style="font-size:13px;color:var(--textlt);line-height:1.6;">Department of Public Works and Highways<br>Bonifacio Drive, Port Area, Manila 1018</div>
+          </div>
+          <div style="flex:1;min-width:200px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--textlt);margin-bottom:6px;">Contact</div>
+            <div style="font-size:13px;color:var(--textlt);line-height:1.8;">
+              📞 (02) 5304-3453<br>
+              ✉️ hras@dpwh.gov.ph<br>
+              🕐 Mon–Fri, 8:00 AM – 5:00 PM
+            </div>
+          </div>
+          <div style="flex:1;min-width:200px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--textlt);margin-bottom:6px;">Note</div>
+            <div style="font-size:13px;color:var(--textlt);line-height:1.6;">Applications received after the deadline will not be entertained. Late and incomplete applications are automatically disqualified.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ONLINE APPLICATION CARD -->
+      <div class="ors-card">
+        <div class="ors-card-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 3C12 3 9 7 9 12C9 17 12 21 12 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M12 3C12 3 15 7 15 12C15 17 12 21 12 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M3.5 9H20.5M3.5 15H20.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="ors-card-body">
+          <div class="ors-card-label">Online Application Available</div>
+          <div class="ors-card-title">DPWH Online Recruitment System (ORS)</div>
+          <div class="ors-card-url">ors.dpwh.gov.ph</div>
+        </div>
+        <a href="https://ors.dpwh.gov.ph/#/login" target="_blank" rel="noopener noreferrer" class="ors-card-btn">
+          Apply Online <span>→</span>
+        </a>
+      </div>
+
+    </div><!-- /how-to-apply -->
+
   </div>
 
   <!-- REFERENCES -->
@@ -3495,6 +4053,306 @@ function glSearch(q) {
   });
   document.getElementById('gl-no-results').style.display = any ? 'none' : 'block';
 }
+</script>
+
+<script>
+/* ============================================================
+   JOB DATA
+   ============================================================ */
+const jobs = [
+  { id:1,  posted:"2026-04-30", itemNo:"ENG3-98-2014",     title:"Engineer III",                    region:"Central Office", office:"Buildings and Special Projects Management Cluster-UPMO",                         location:"2nd Street, Port Area, Manila",        sg:19, deadline:"2026-05-10", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"2 years of relevant experience", trng:"8 hours of relevant training", elig:"R.A. 1080" }},
+  { id:2,  posted:"2026-04-30", itemNo:"ENG3-76-2018",     title:"Engineer III",                    region:"Central Office", office:"UPMO – Project Manager's Pool",                                                  location:"2nd Street, Port Area, Manila",        sg:19, deadline:"2026-05-10", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"2 years of relevant experience", trng:"8 hours of relevant training", elig:"R.A. 1080" }},
+  { id:3,  posted:"2026-04-30", itemNo:"ENG4-350-1998",    title:"Engineer IV",                     region:"Central Office", office:"Bureau of Design, Highways Division",                                            location:"Bonifacio Drive, Port Area, Manila",   sg:22, deadline:"2026-05-10", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"3 years of relevant experience", trng:"16 hours of relevant training", elig:"R.A. 1080" }},
+  { id:4,  posted:"2026-04-30", itemNo:"ENG4-22-2014",     title:"Engineer IV",                     region:"Central Office", office:"Bureau of Design, Buildings Division",                                           location:"Bonifacio Drive, Port Area, Manila",   sg:22, deadline:"2026-05-10", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"3 years of relevant experience", trng:"16 hours of relevant training", elig:"R.A. 1080" }},
+  { id:5,  posted:"2026-04-30", itemNo:"ARC3-16-1998",     title:"Architect III",                   region:"Central Office", office:"Bureau of Design, Buildings Division",                                           location:"Bonifacio Drive, Port Area, Manila",   sg:19, deadline:"2026-05-10", category:"Architecture",          req:{ edu:"Bachelor's Degree in Architecture",                                                          exp:"2 years of relevant experience", trng:"8 hours of relevant training",  elig:"RA 1080" }},
+  { id:6,  posted:"2026-04-30", itemNo:"ENGAS-68-2014",    title:"Engineering Assistant",           region:"Central Office", office:"Bureau of Design, Buildings Division",                                           location:"Bonifacio Drive, Port Area, Manila",   sg:8,  deadline:"2026-05-10", category:"Engineering",           req:{ edu:"Completion of 2-year college studies or Grade 12/Senior High School",                        exp:"1 year of relevant experience",  trng:"4 hours of relevant training",  elig:"Career Service (Sub-Professional) First Level Eligibility" }},
+  { id:7,  posted:"2026-04-30", itemNo:"ENGAS-36-2018",    title:"Engineering Assistant",           region:"Central Office", office:"Bridges Management Cluster-UPMO",                                               location:"2nd Street, Port Area, Manila",        sg:8,  deadline:"2026-05-10", category:"Engineering",           req:{ edu:"Completion of 2-year college studies or Grade 12/Senior High School",                        exp:"1 year of relevant experience",  trng:"4 hours of relevant training",  elig:"Career Service (Sub-Professional) First Level Eligibility" }},
+  { id:8,  posted:"2026-04-30", itemNo:"INFOSR2-6-2018",   title:"Information Systems Researcher II",region:"Central Office", office:"Information Management Service, Business Innovation Division",                  location:"Bonifacio Drive, Port Area, Manila",   sg:14, deadline:"2026-05-10", category:"Information Technology", req:{ edu:"Bachelor's degree relevant to the job",                                                       exp:"1 year of relevant experience",  trng:"4 hours of relevant training",  elig:"Career Service (Professional) / Second Level Eligibility" }},
+  { id:9,  posted:"2026-04-29", itemNo:"COMPRO2-16-2014",  title:"Computer Programmer II",          region:"Central Office", office:"Information Management Service, Application Support Division",                   location:"Bonifacio Drive, Port Area, Manila",   sg:15, deadline:"2026-05-09", category:"Information Technology", req:{ edu:"Bachelor's degree relevant to the job",                                                       exp:"1 year of relevant experience",  trng:"4 hours of relevant training",  elig:"Career Service (Professional) / Second Level Eligibility" }},
+  { id:10, posted:"2026-04-29", itemNo:"SADAS1-2-2015",    title:"Senior Administrative Assistant I",region:"Central Office", office:"Stakeholders Relations Service, Public Information Division",                  location:"Bonifacio Drive, Port Area, Manila",   sg:13, deadline:"2026-05-09", category:"Administration",         req:{ edu:"Completion of 2 years college or HS graduate with vocational/trade course",                  exp:"3 years of relevant experience", trng:"16 hours of relevant training", elig:"Career Service (Subprofessional) / First Level Eligibility" }},
+  { id:11, posted:"2026-04-29", itemNo:"ENG5-26-1998",     title:"Engineer V",                      region:"Central Office", office:"Bureau of Research and Standards, Standards Development Division",               location:"EDSA Diliman, Quezon City",            sg:24, deadline:"2026-05-09", category:"Engineering",           req:{ edu:"Master's degree OR Certificate in Leadership and Management from the CSC",                   exp:"4 years supervisory/management experience", trng:"40 hours supervisory/management L&D intervention", elig:"R.A. 1080 (Board Passed Engineering Courses)" }},
+  { id:12, posted:"2026-04-29", itemNo:"ENG4-377-1998",    title:"Engineer IV",                     region:"Central Office", office:"Bureau of Research and Standards, Standards Development Division",               location:"EDSA Diliman, Quezon City",            sg:22, deadline:"2026-05-09", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"3 years of relevant experience", trng:"16 hours of relevant training", elig:"RA 1080" }},
+  { id:13, posted:"2026-04-29", itemNo:"ENG4-381-1998",    title:"Engineer IV",                     region:"Central Office", office:"Bureau of Research and Standards, Technical Services Division",                 location:"EDSA Diliman, Quezon City",            sg:22, deadline:"2026-05-09", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"3 years of relevant experience", trng:"16 hours of relevant training", elig:"RA 1080" }},
+  { id:14, posted:"2026-04-29", itemNo:"ENG4-379-1998",    title:"Engineer IV",                     region:"Central Office", office:"Bureau of Research and Standards, Research and Development Division",            location:"EDSA Diliman, Quezon City",            sg:22, deadline:"2026-05-09", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"3 years of relevant experience", trng:"16 hours of relevant training", elig:"RA 1080" }},
+  { id:15, posted:"2026-04-29", itemNo:"ENG3-1075-1998",   title:"Engineer III",                    region:"Central Office", office:"Bureau of Research and Standards, Technical Services Division",                 location:"EDSA Diliman, Quezon City",            sg:19, deadline:"2026-05-09", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"2 years of relevant experience", trng:"8 hours of relevant training",  elig:"R.A. 1080" }},
+  { id:16, posted:"2026-04-29", itemNo:"ENG2-586-1998",    title:"Engineer II (Civil Engineer)",    region:"Central Office", office:"Bureau of Research and Standards, Research and Development Division",            location:"EDSA Diliman, Quezon City",            sg:16, deadline:"2026-05-09", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"None required",                  trng:"None required",                  elig:"RA 1080 (Civil Engineer)" }},
+  { id:17, posted:"2026-04-29", itemNo:"ENG2-719-1998",    title:"Engineer II (Civil Engineer)",    region:"Central Office", office:"Bureau of Research and Standards, Materials Testing Division",                  location:"EDSA Diliman, Quezon City",            sg:16, deadline:"2026-05-09", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"None required",                  trng:"None required",                  elig:"RA 1080 (Civil Engineer)" }},
+  { id:18, posted:"2026-04-29", itemNo:"ENG2-785-1998",    title:"Engineer II (Civil Engineer)",    region:"Central Office", office:"Bureau of Research and Standards, Materials Testing Division",                  location:"EDSA Diliman, Quezon City",            sg:16, deadline:"2026-05-09", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"None required",                  trng:"None required",                  elig:"RA 1080 (Civil Engineer)" }},
+  { id:19, posted:"2026-04-29", itemNo:"LABT2-1-1998",     title:"Laboratory Technician II",        region:"Central Office", office:"Bureau of Research and Standards, Materials Testing Division",                  location:"EDSA Diliman, Quezon City",            sg:8,  deadline:"2026-05-09", category:"Administration",         req:{ edu:"Completion of 2-year college studies or Grade 12/Senior High School",                        exp:"1 year of relevant experience",  trng:"4 hours of relevant training",  elig:"Laboratory Technician (MC 10, s. 2013-Category II)" }},
+  { id:20, posted:"2026-04-29", itemNo:"LABT2-118-1998",   title:"Laboratory Technician II",        region:"Central Office", office:"Bureau of Research and Standards, Research and Development Division",            location:"EDSA Diliman, Quezon City",            sg:8,  deadline:"2026-05-09", category:"Administration",         req:{ edu:"Completion of 2-year college studies or Grade 12/Senior High School",                        exp:"1 year of relevant experience",  trng:"4 hours of relevant training",  elig:"Laboratory Technician (MC 10, s. 2013-Category II)" }},
+  { id:21, posted:"2026-04-29", itemNo:"LABT2-13-2014",    title:"Laboratory Technician II",        region:"Central Office", office:"Bureau of Research and Standards, Research and Development Division",            location:"EDSA Diliman, Quezon City",            sg:8,  deadline:"2026-05-09", category:"Administration",         req:{ edu:"Completion of 2-year college studies or Grade 12/Senior High School",                        exp:"1 year of relevant experience",  trng:"4 hours of relevant training",  elig:"Laboratory Technician (MC 10, s. 2013-Category II)" }},
+  { id:22, posted:"2026-04-22", itemNo:"ENG4-15-2014",     title:"Engineer IV",                     region:"Central Office", office:"Bureau of Maintenance, Safety and Disaster Management Coordination Division",    location:"2nd Street, Port Area, Manila",        sg:22, deadline:"2026-05-02", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"3 years of relevant experience", trng:"16 hours of relevant training", elig:"R.A. 1080" }},
+  { id:23, posted:"2026-04-22", itemNo:"ENG4-16-2014",     title:"Engineer IV",                     region:"Central Office", office:"Bureau of Maintenance, Safety and Disaster Management Coordination Division",    location:"2nd Street, Port Area, Manila",        sg:22, deadline:"2026-05-02", category:"Engineering",           req:{ edu:"Bachelor's degree in Engineering relevant to the job", exp:"3 years of relevant experience", trng:"16 hours of relevant training", elig:"R.A. 1080" }},
+  { id:24, posted:"2026-04-22", itemNo:"PRAP2-10-1998",    title:"Property Appraiser II",           region:"Central Office", office:"Bureau of Maintenance, National Building Services Division",                      location:"2nd Street, Port Area, Manila",        sg:15, deadline:"2026-05-02", category:"Administration",         req:{ edu:"Bachelor's degree relevant to the job",                                                       exp:"1 year of relevant experience",  trng:"4 hours of relevant training",  elig:"RA 1080 (Real Estate Service)" }},
+];
+
+/* ── CATEGORY STYLE MAP ── */
+const CAT = {
+  "Engineering":            { accent:"#4C6EF5", bg:"#F0F3FF", fg:"#2438A6", border:"rgba(76,110,245,0.22)", icon:"⚙️" },
+  "Information Technology": { accent:"#8B5CF6", bg:"#F5F3FF", fg:"#6D28D9", border:"rgba(109,40,217,0.2)",  icon:"💻" },
+  "Administration":         { accent:"#10B981", bg:"#ECFDF5", fg:"#065F46", border:"rgba(5,95,70,0.2)",     icon:"📁" },
+  "Architecture":           { accent:"#FF8A5C", bg:"#FFF4EF", fg:"#C84B00", border:"rgba(200,75,0,0.2)",    icon:"🏛️" },
+};
+
+/* ── STATE ── */
+let currentPage = 1;
+const perPage = 9;
+let activeChip = "";
+let filtered = [...jobs];
+
+/* ── DEADLINE URGENCY ── */
+function deadlineInfo(dateStr) {
+  const today = new Date("2026-05-03");
+  const dl = new Date(dateStr);
+  const diff = Math.ceil((dl - today) / 86400000);
+  const label = dl.toLocaleDateString("en-PH", { month:"short", day:"numeric", year:"numeric" });
+  if (diff <= 0) return { label:"Closed",              cls:"urgent", dot:"🔴" };
+  if (diff <= 7) return { label:`${diff}d — ${label}`, cls:"urgent", dot:"🔴" };
+  if (diff <= 14) return { label:label,                cls:"soon",   dot:"🟡" };
+  return               { label:label,                  cls:"ok",     dot:"🟢" };
+}
+
+/* ── RENDER ── */
+function renderCards(list) {
+  const grid    = document.getElementById("cardsGrid");
+  const empty   = document.getElementById("emptyState");
+  const countEl = document.getElementById("resultCount");
+  const totalEl = document.getElementById("totalCount");
+
+  totalEl.textContent = jobs.length;
+  countEl.textContent = list.length;
+
+  if (list.length === 0) {
+    grid.innerHTML = "";
+    empty.classList.add("visible");
+    document.getElementById("paginationNav").style.display = "none";
+    return;
+  }
+  empty.classList.remove("visible");
+  document.getElementById("paginationNav").style.display = "";
+
+  const start = (currentPage - 1) * perPage;
+  const page  = list.slice(start, start + perPage);
+
+  grid.innerHTML = page.map(job => {
+    const cs  = CAT[job.category] || CAT["Administration"];
+    const dl  = deadlineInfo(job.deadline);
+    const r   = job.req;
+    const posted = new Date(job.posted).toLocaleDateString("en-PH", { month:"short", day:"numeric", year:"numeric" });
+
+    return `
+    <article class="job-card"
+      style="--cat-accent:${cs.accent}"
+      role="article" aria-label="${job.title}, ${job.itemNo}">
+
+      <div class="card-body">
+        <div class="card-top">
+          <span class="cat-tag" style="background:${cs.bg};color:${cs.fg};border-color:${cs.border}">
+            ${cs.icon} ${job.category}
+          </span>
+          <button class="btn-save" onclick="toggleSave(this)" aria-label="Save job" title="Save this position">🔖</button>
+        </div>
+
+        <h2 class="card-title">${job.title}</h2>
+        <div class="card-item-no">Item No. ${job.itemNo} &nbsp;·&nbsp; Posted ${posted}</div>
+
+        <div class="card-meta">
+          <div class="meta-row">
+            <span class="meta-icon">📍</span>
+            <div class="meta-content">
+              <span class="meta-label">Office / Bureau</span>
+              <span class="meta-val">${job.office}</span>
+            </div>
+          </div>
+          <div class="meta-row">
+            <span class="meta-icon">📍</span>
+            <div class="meta-content">
+              <span class="meta-label">Location</span>
+              <span class="meta-val">${job.location}</span>
+            </div>
+          </div>
+          <div class="meta-row">
+            <span class="meta-icon">💰</span>
+            <div class="meta-content">
+              <span class="meta-label">Salary Grade</span>
+              <span class="meta-val"><span class="sg-badge">SG ${job.sg}</span></span>
+            </div>
+          </div>
+          <div class="meta-row">
+            <span class="meta-icon">⏰</span>
+            <div class="meta-content">
+              <span class="meta-label">Application Deadline</span>
+              <span class="meta-val">
+                <span class="deadline-badge ${dl.cls}">${dl.dot} ${dl.label}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="req-toggle" onclick="toggleReq(this)" aria-expanded="false">
+        📋 Qualification Requirements
+        <span class="req-arrow">▼</span>
+      </button>
+      <div class="req-body">
+        <div class="req-list">
+          <div class="req-item">
+            <span class="req-item-icon">🎓</span>
+            <div class="req-item-body">
+              <span class="req-item-label">Education</span>
+              ${r.edu}
+            </div>
+          </div>
+          <div class="req-item">
+            <span class="req-item-icon">💼</span>
+            <div class="req-item-body">
+              <span class="req-item-label">Experience</span>
+              ${r.exp}
+            </div>
+          </div>
+          <div class="req-item">
+            <span class="req-item-icon">📚</span>
+            <div class="req-item-body">
+              <span class="req-item-label">Training</span>
+              ${r.trng}
+            </div>
+          </div>
+          <div class="req-item">
+            <span class="req-item-icon">✅</span>
+            <div class="req-item-body">
+              <span class="req-item-label">Eligibility</span>
+              ${r.elig}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button class="btn-apply" onclick="showPage('careers'); switchTab('how-to-apply')">
+          ✏️ Apply Now
+        </button>
+        <button class="btn-details"
+          onclick="alert('Full details for ${job.itemNo} will open here.')">
+          Details
+        </button>
+      </div>
+    </article>`;
+  }).join("");
+
+  updatePagination(list.length);
+}
+
+/* ── TOGGLE REQUIREMENTS ── */
+function toggleReq(btn) {
+  const body  = btn.nextElementSibling;
+  const arrow = btn.querySelector(".req-arrow");
+  const open  = body.classList.toggle("open");
+  arrow.classList.toggle("open", open);
+  btn.setAttribute("aria-expanded", open);
+}
+
+/* ── TOGGLE SAVE ── */
+function toggleSave(btn) {
+  btn.classList.toggle("saved");
+  btn.textContent = btn.classList.contains("saved") ? "🔒" : "🔖";
+  btn.title = btn.classList.contains("saved") ? "Saved!" : "Save this position";
+}
+
+/* ── FILTER & SORT ── */
+function applyFilters() {
+  const q        = document.getElementById("searchInput").value.toLowerCase();
+  const region   = document.getElementById("filterRegion").value;
+  const cat = activeChip || document.getElementById("filterCategory").value;
+  const sg       = document.getElementById("filterSG").value;
+  const dlFilter = document.getElementById("filterDeadline").value;
+  const sort     = document.getElementById("sortSelect").value;
+  const today    = new Date("2026-05-03");
+
+  filtered = jobs.filter(j => {
+    if (q && !`${j.title} ${j.office} ${j.itemNo} ${j.category} ${j.location}`.toLowerCase().includes(q)) return false;
+    if (region && !j.region.includes(region)) return false;
+    if (cat && j.category !== cat) return false;
+    if (sg && j.sg !== parseInt(sg)) return false;
+    if (dlFilter === "urgent") { const d = Math.ceil((new Date(j.deadline) - today) / 86400000); if (d > 7) return false; }
+    if (dlFilter === "soon")   { const d = Math.ceil((new Date(j.deadline) - today) / 86400000); if (d > 14) return false; }
+    return true;
+  });
+
+  filtered.sort((a, b) => {
+    if (sort === "deadline") return new Date(a.deadline) - new Date(b.deadline);
+    if (sort === "sg-asc")   return a.sg - b.sg;
+    if (sort === "sg-desc")  return b.sg - a.sg;
+    return new Date(b.posted) - new Date(a.posted);
+  });
+
+  currentPage = 1;
+  renderCards(filtered);
+}
+
+/* ── CHIP FILTER ── */
+function chipFilter(el, cat) {
+  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+  el.classList.add("active");
+  activeChip = cat;
+  document.getElementById("filterCategory").value = cat;
+  applyFilters();
+}
+
+/* ── RESET ── */
+function resetFilters() {
+  document.getElementById("searchInput").value = "";
+  document.getElementById("filterRegion").value = "";
+  document.getElementById("filterCategory").value = "";
+  document.getElementById("filterSG").value = "";
+  document.getElementById("filterDeadline").value = "";
+  document.getElementById("sortSelect").value = "latest";
+  activeChip = "";
+  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+  document.querySelector(".chip[data-cat='']").classList.add("active");
+  applyFilters();
+}
+
+/* ── PAGINATION ── */
+function updatePagination(total) {
+  const pages = Math.max(1, Math.ceil(total / perPage));
+  for (let i = 1; i <= 3; i++) {
+    const btn = document.getElementById("pg" + i);
+    if (btn) { btn.style.display = i <= pages ? "" : "none"; btn.classList.toggle("active", i === currentPage); }
+  }
+  document.getElementById("prevBtn").disabled = currentPage <= 1;
+  document.getElementById("nextBtn").disabled = currentPage >= pages;
+}
+function goPage(n) {
+  currentPage = n;
+  renderCards(filtered);
+  document.getElementById("section-vacancies").scrollIntoView({ behavior:"smooth" });
+}
+function changePage(dir) {
+  const pages = Math.ceil(filtered.length / perPage);
+  const next  = currentPage + dir;
+  if (next >= 1 && next <= pages) goPage(next);
+}
+
+/* ── TAB SWITCH (careers page) ── */
+function switchTab(tab) {
+  document.querySelectorAll("#page-careers .subpage-tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll("#page-careers .r-section").forEach(s => s.classList.remove("active"));
+  document.getElementById("tab-" + tab).classList.add("active");
+  document.getElementById("section-" + tab).classList.add("active");
+  window.scrollTo({ top: 0, behavior:"smooth" });
+}
+
+/* ── SYNC HEADER SEARCH ── */
+function syncSearch() {
+  const topSearch = document.getElementById("topSearch");
+  if (topSearch) {
+    document.getElementById("searchInput").value = topSearch.value;
+    applyFilters();
+  }
+}
+
+/* ── INIT ── */
+applyFilters();
 
 /* Contact form */
 document.getElementById('contactForm').addEventListener('submit', function(e) {

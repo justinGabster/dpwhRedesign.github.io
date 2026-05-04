@@ -350,12 +350,6 @@
   .region-card .region-name { font-size: 12px; color: var(--textlt); line-height: 1.35; }
   .r-section { display: none; }
   .r-section.active { display: block; }
-
-  /* ── TRANSPARENCY PAGE STYLES ── */
-  .tp-seal-hero {
-    background: var(--white); border: 1px solid var(--border); border-radius: 12px;
-    padding: 28px 32px; display: flex; gap: 28px; align-items: flex-start; margin-bottom: 24px;
-  }
   .tp-seal-img-col { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .tp-seal-img-col img {
     width: 120px; height: 120px; object-fit: contain;
@@ -1313,22 +1307,24 @@ table.proj-table tr:hover td { background: var(--light); }
       <p style="white-space: nowrap;">Compliance with R.A. No. 11260 (GAA FY 2019) &mdash; public access to government information, financial reports, and accountability documents.</p>
     </div>
 
-    <!-- SEAL INTRO -->
-    <div class="tp-seal-hero" style="padding:28px 32px;">
-      <div class="tp-seal-img-col" style="padding-left:12px;padding-right:20px;">
-        <img src="images/transparency-seal.png" alt="Philippines Transparency Seal">
-        <div class="tp-seal-img-label">Philippines<br>Transparency Seal</div>
-      </div>
-      <div class="tp-seal-text">
-        <h3>Symbolism of the Transparency Seal</h3>
-        <p>A pearl buried inside a tightly-shut shell is practically worthless. Government information is a pearl, meant to be shared with the public in order to maximize its inherent value.</p>
-        <p>The Transparency Seal, depicted by a pearl shining out of an open shell, is a symbol of a policy shift towards openness in access to government information. On the one hand, it hopes to inspire Filipinos in the civil service to be more open to citizen engagement; on the other, to invite the Filipino citizenry to exercise their right to participate in governance.</p>
-        <div class="tp-seal-badge">
-          <span class="tp-seal-badge-dot"></span>
-          DPWH Compliance &mdash; R.A. No. 11260, Sec. 106 (GAA FY 2019)
+    <!-- SEAL SECTION -->
+    <div class="seal-section">
+      <div class="seal-glow-bl"></div>
+      <div class="seal-top-bar"></div>
+      <div class="seal-inner">
+        <div class="seal-img-wrap">
+          <img src="images/transparency-seal.png" alt="Philippines Transparency Seal">
+          <div class="seal-lbl">Philippines<br>Transparency Seal</div>
+        </div>
+        <div class="seal-body">
+          <h2>Symbolism of the Transparency Seal</h2>
+          <p>A pearl buried inside a tightly-shut shell is practically worthless. Government information is a pearl, meant to be shared with the public in order to maximize its inherent value.</p>
+          <p>The Transparency Seal, depicted by a pearl shining out of an open shell, is a symbol of a policy shift towards openness in access to government information. It hopes to inspire Filipinos in the civil service to be more open to citizen engagement and to invite the Filipino citizenry to exercise their right to participate in governance.</p>
+          <div class="seal-badge"><span class="seal-badge-dot"></span>DPWH Compliance — R.A. No. 11260, Sec. 106 (GAA FY 2019)</div>
         </div>
       </div>
     </div>
+    <div class="seal-divider"></div>
 
     <!-- ── SCOPED STYLES ── -->
     <style>
@@ -1473,6 +1469,12 @@ table.proj-table tr:hover td { background: var(--light); }
         <svg width="14" height="14" viewBox="0 0 20 20" fill="none" style="flex-shrink:0;color:var(--textlt);"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         <input type="text" id="tp-search" placeholder="Search documents, reports, years&hellip;" oninput="tpFilter()"
           style="border:none;outline:none;background:transparent;font-size:13.5px;color:var(--text);width:100%;font-family:var(--font-sans);">
+      </div>
+      <div class="stat-strip">
+        <div class="stat-card"><div class="stat-val">11</div><div class="stat-lbl">Document categories</div></div>
+          <div class="stat-card"><div class="stat-val">2010</div><div class="stat-lbl">Records from as early as</div></div>
+          <div class="stat-card"><div class="stat-val">6</div><div class="stat-lbl">Report types available</div></div>
+          <div class="stat-card"><div class="stat-val">FOI</div><div class="stat-lbl">Open access portal linked</div></div>
       </div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
         <span style="font-size:11px;font-weight:600;color:var(--textlt);letter-spacing:0.06em;text-transform:uppercase;margin-right:4px;">Filter:</span>
@@ -2187,14 +2189,102 @@ table.proj-table tr:hover td { background: var(--light); }
     })();
     </script>
 
+    <style>
+    /* Seal section */
+    .seal-section {
+    margin: 28px 0 0;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(130deg, #08123A 0%, #0F1E6A 55%, #172590 100%);
+    box-shadow: 0 8px 36px rgba(11,26,74,0.22);
+  }
+    .seal-section::before {
+      content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+    background-size: 22px 22px; pointer-events: none;
+  }
+    .seal-section::after {
+    content: ''; position: absolute; right: -60px; top: -60px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(255,138,92,0.14) 0%, transparent 68%);
+    border-radius: 50%; pointer-events: none;
+  }
+    .seal-glow-bl {
+    position: absolute; left: -80px; bottom: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(76,110,245,0.12) 0%, transparent 65%);
+    border-radius: 50%; pointer-events: none;
+  }
+    .seal-top-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange) 0%, var(--blue) 60%, transparent 100%);
+  }
+  .seal-inner {
+    display: flex; gap: 32px; align-items: flex-start;
+    padding: 32px 36px; position: relative;
+  }
+    .seal-img-wrap { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .seal-img-wrap img {
+      width: 108px; height: 108px; object-fit: contain; border-radius: 50%;
+      border: 3px solid rgba(255,138,92,0.8);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 0 0 6px rgba(255,138,92,0.12), 0 4px 20px rgba(0,0,0,0.3);
+  }
+    .seal-lbl {
+    font-size: 9.5px; font-weight: 600; color: rgba(200,208,232,0.6);
+    letter-spacing: 0.1em; text-transform: uppercase; text-align: center; line-height: 1.5;
+  }
+    .seal-body h2 {
+    font-family: var(--font-serif); font-size: 19px; font-weight: 600;
+    color: #fff; margin-bottom: 12px;
+  }
+    .seal-body p { font-size: 13px; color: rgba(200,208,232,0.78); line-height: 1.82; }
+    .seal-body p + p { margin-top: 8px; }
+    .seal-badge {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 20px; padding: 7px 16px;
+      font-size: 11px; font-weight: 600; color: rgba(220,228,255,0.9);
+  }
+    .seal-badge-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 0 3px rgba(34,197,94,0.2); flex-shrink: 0; }
+    .seal-divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange) 0%, var(--blue) 40%, transparent 100%);
+    margin-bottom: 20px; border-radius: 0 0 2px 2px; opacity: 0.5;
+  }
+
+  /* Stat strip */
+  .stat-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 0 0 20px; }
+  .stat-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px 18px; box-shadow: 0 1px 4px rgba(11,26,74,0.07);
+    display: flex; flex-direction: column; gap: 5px; position: relative; overflow: hidden;
+  }
+  .stat-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--blue)); border-radius: 2px 2px 0 0;
+  }
+  .stat-val {
+    font-family: var(--font-sans); font-size: 26px; font-weight: 600;
+    color: var(--navy); line-height: 1; letter-spacing: -0.02em;
+  }
+  .stat-lbl { font-size: 11px; color: var(--textlt); font-weight: 400; line-height: 1.4; margin-top: 2px; }
+
+  @media (max-width: 640px) {
+    .seal-inner { flex-direction: column; align-items: center; padding: 24px 20px; }
+    .stat-strip { grid-template-columns: repeat(2,1fr); }
+  }
+  </style>
+
   </div>
 
   <!-- ??????????????????????????????????????????
-     PROJECTS PAGE � with Interactive Map
+     PROJECTS PAGE › with Interactive Map
      ?????????????????????????????????????????? -->
 <div class="page" id="page-projects">
   <div class="page-header">
-    <div class="breadcrumb">Home � <span>Projects</span></div>
+    <div class="breadcrumb">Home › <span>Projects</span></div>
     <h2>Projects</h2>
     <p>National infrastructure projects, statistics, geospatial data, and public-private partnerships.</p>
   </div>
@@ -2281,16 +2371,16 @@ table.proj-table tr:hover td { background: var(--light); }
               <g class="ph-region" data-region="CAR" data-name="Cordillera Administrative Region" onclick="selectRegion('CAR','Cordillera Administrative Region')">
                 <path d="M210,130 L230,118 L255,115 L270,125 L268,148 L252,162 L232,165 L212,155 Z" fill="#27AE60" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="I" data-name="Region I - Ilocos" onclick="selectRegion('I','Region I � Ilocos')">
+              <g class="ph-region" data-region="I" data-name="Region I - Ilocos" onclick="selectRegion('I','Region I — Ilocos')">
                 <path d="M175,130 L195,120 L210,130 L212,155 L205,178 L188,185 L172,170 L168,148 Z" fill="#E67E22" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="II" data-name="Region II - Cagayan Valley" onclick="selectRegion('II','Region II � Cagayan Valley')">
+              <g class="ph-region" data-region="II" data-name="Region II - Cagayan Valley" onclick="selectRegion('II','Region II — Cagayan Valley')">
                 <path d="M255,115 L285,100 L310,108 L318,132 L308,158 L290,165 L270,158 L268,148 L270,125 Z" fill="#8E44AD" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="III" data-name="Region III - Central Luzon" onclick="selectRegion('III','Region III � Central Luzon')">
+              <g class="ph-region" data-region="III" data-name="Region III - Central Luzon" onclick="selectRegion('III','Region III — Central Luzon')">
                 <path d="M205,178 L212,155 L232,165 L252,162 L268,148 L270,158 L262,182 L248,198 L230,205 L210,200 Z" fill="#9B59B6" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="IV-A" data-name="Region IV-A - CALABARZON" onclick="selectRegion('IV-A','Region IV-A � CALABARZON')">
+              <g class="ph-region" data-region="IV-A" data-name="Region IV-A - CALABARZON" onclick="selectRegion('IV-A','Region IV-A — CALABARZON')">
                 <path d="M230,205 L248,198 L262,182 L278,190 L285,210 L275,235 L255,242 L238,235 L225,220 Z" fill="#1ABC9C" stroke="#fff" stroke-width="1.5"/>
               </g>
               <g class="ph-region" data-region="IV-B" data-name="MIMAROPA Region" onclick="selectRegion('IV-B','MIMAROPA Region')">
@@ -2299,43 +2389,43 @@ table.proj-table tr:hover td { background: var(--light); }
                 <path d="M185,330 L198,325 L202,342 L190,350 L178,342 Z" fill="#E74C3C" stroke="#fff" stroke-width="1.5"/>
                 <path d="M175,358 L188,352 L192,368 L180,376 L168,368 Z" fill="#E74C3C" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="V" data-name="Region V - Bicol" onclick="selectRegion('V','Region V � Bicol')">
+              <g class="ph-region" data-region="V" data-name="Region V - Bicol" onclick="selectRegion('V','Region V — Bicol')">
                 <path d="M275,235 L285,210 L302,218 L318,232 L322,255 L308,272 L290,278 L275,265 Z" fill="#F39C12" stroke="#fff" stroke-width="1.5"/>
                 <path d="M308,272 L322,265 L328,282 L318,295 L305,290 Z" fill="#F39C12" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="VI" data-name="Region VI - Western Visayas" onclick="selectRegion('VI','Region VI � Western Visayas')">
+              <g class="ph-region" data-region="VI" data-name="Region VI - Western Visayas" onclick="selectRegion('VI','Region VI — Western Visayas')">
                 <path d="M295,330 L315,320 L335,325 L342,345 L330,360 L310,358 L295,348 Z" fill="#16A085" stroke="#fff" stroke-width="1.5"/>
                 <path d="M268,342 L285,335 L295,348 L288,362 L272,360 Z" fill="#16A085" stroke="#fff" stroke-width="1.5"/>
               </g>
               <g class="ph-region" data-region="NIR" data-name="Negros Island Region" onclick="selectRegion('NIR','Negros Island Region')">
                 <path d="M318,358 L335,350 L345,368 L338,385 L322,388 L312,375 Z" fill="#2980B9" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="VII" data-name="Region VII - Central Visayas" onclick="selectRegion('VII','Region VII � Central Visayas')">
+              <g class="ph-region" data-region="VII" data-name="Region VII - Central Visayas" onclick="selectRegion('VII','Region VII — Central Visayas')">
                 <path d="M345,345 L365,338 L375,355 L368,372 L350,375 L342,360 Z" fill="#2C3E82" stroke="#fff" stroke-width="1.5"/>
                 <path d="M360,375 L378,368 L385,385 L372,395 L358,390 Z" fill="#2C3E82" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="VIII" data-name="Region VIII - Eastern Visayas" onclick="selectRegion('VIII','Region VIII � Eastern Visayas')">
+              <g class="ph-region" data-region="VIII" data-name="Region VIII - Eastern Visayas" onclick="selectRegion('VIII','Region VIII — Eastern Visayas')">
                 <path d="M375,312 L395,305 L408,320 L405,342 L388,350 L372,342 Z" fill="#229954" stroke="#fff" stroke-width="1.5"/>
                 <path d="M385,350 L400,342 L410,358 L402,375 L388,372 Z" fill="#229954" stroke="#fff" stroke-width="1.5"/>
                 <path d="M372,375 L385,368 L390,385 L378,395 L365,388 Z" fill="#229954" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="IX" data-name="Region IX - Zamboanga Peninsula" onclick="selectRegion('IX','Region IX � Zamboanga Peninsula')">
+              <g class="ph-region" data-region="IX" data-name="Region IX - Zamboanga Peninsula" onclick="selectRegion('IX','Region IX — Zamboanga Peninsula')">
                 <path d="M255,440 L285,428 L305,440 L308,462 L292,478 L268,475 L252,460 Z" fill="#E67E22" stroke="#fff" stroke-width="1.5"/>
                 <path d="M225,458 L250,448 L252,465 L238,475 L222,470 Z" fill="#E67E22" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="X" data-name="Region X - Northern Mindanao" onclick="selectRegion('X','Region X � Northern Mindanao')">
+              <g class="ph-region" data-region="X" data-name="Region X - Northern Mindanao" onclick="selectRegion('X','Region X — Northern Mindanao')">
                 <path d="M308,420 L335,412 L358,422 L362,445 L345,460 L320,458 L305,445 Z" fill="#7F8C8D" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="XI" data-name="Region XI - Davao Region" onclick="selectRegion('XI','Region XI � Davao Region')">
+              <g class="ph-region" data-region="XI" data-name="Region XI - Davao Region" onclick="selectRegion('XI','Region XI — Davao Region')">
                 <path d="M345,460 L372,452 L392,465 L395,490 L378,505 L352,502 L338,485 Z" fill="#8E44AD" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="XII" data-name="Region XII - SOCCSKSARGEN" onclick="selectRegion('XII','Region XII � SOCCSKSARGEN')">
+              <g class="ph-region" data-region="XII" data-name="Region XII - SOCCSKSARGEN" onclick="selectRegion('XII','Region XII — SOCCSKSARGEN')">
                 <path d="M305,462 L325,458 L340,475 L338,498 L318,508 L298,498 L292,478 Z" fill="#1ABC9C" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="XIII" data-name="Region XIII - Caraga" onclick="selectRegion('XIII','Region XIII � Caraga')">
+              <g class="ph-region" data-region="XIII" data-name="Region XIII - Caraga" onclick="selectRegion('XIII','Region XIII — Caraga')">
                 <path d="M368,422 L392,415 L408,428 L408,455 L392,465 L372,452 L362,438 Z" fill="#E74C3C" stroke="#fff" stroke-width="1.5"/>
               </g>
-              <g class="ph-region" data-region="BARMM" data-name="BARMM - Bangsamoro" onclick="selectRegion('BARMM','BARMM � Bangsamoro')">
+              <g class="ph-region" data-region="BARMM" data-name="BARMM - Bangsamoro" onclick="selectRegion('BARMM','BARMM — Bangsamoro')">
                 <path d="M268,475 L292,478 L298,498 L285,512 L265,508 L255,492 Z" fill="#D35400" stroke="#fff" stroke-width="1.5"/>
                 <path d="M305,500 L320,495 L325,512 L312,520 L298,515 Z" fill="#D35400" stroke="#fff" stroke-width="1.5"/>
                 <path d="M340,498 L358,492 L365,508 L352,518 L338,512 Z" fill="#D35400" stroke="#fff" stroke-width="1.5"/>
@@ -2568,8 +2658,7 @@ table.proj-table tr:hover td { background: var(--light); }
 
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;}
+.gis-root *{box-sizing:border-box;margin:0;padding:0;}
 .gis-root{background:#F5F7FF;font-family:'DM Sans',sans-serif;color:#1A2352;}
 .top-bar{background:#0B1A4A;padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
 .top-bar-title{color:#fff;font-size:13px;font-weight:600;letter-spacing:0.03em;}
@@ -4685,7 +4774,7 @@ renderPage();
         <div class="chip" onclick="chipFilter(this,'Engineering')" data-cat="Engineering">⚙︝ Engineering</div>
         <div class="chip" onclick="chipFilter(this,'Information Technology')" data-cat="Information Technology">💻 IT</div>
         <div class="chip" onclick="chipFilter(this,'Administration')" data-cat="Administration">📝 Administration</div>
-        <div class="chip" onclick="chipFilter(this,'Architecture')" data-cat="Architecture">🝛︝ Architecture</div>
+        <div class="chip" onclick="chipFilter(this,'Architecture')" data-cat="Architecture">🏛 Architecture</div>
       </div>
 
       <!-- CARDS GRID -->
@@ -5534,7 +5623,7 @@ const CAT = {
   "Engineering":            { accent:"#4C6EF5", bg:"#F0F3FF", fg:"#2438A6", border:"rgba(76,110,245,0.22)", icon:"⚙︝" },
   "Information Technology": { accent:"#8B5CF6", bg:"#F5F3FF", fg:"#6D28D9", border:"rgba(109,40,217,0.2)",  icon:"💻" },
   "Administration":         { accent:"#10B981", bg:"#ECFDF5", fg:"#065F46", border:"rgba(5,95,70,0.2)",     icon:"📝" },
-  "Architecture":           { accent:"#FF8A5C", bg:"#FFF4EF", fg:"#C84B00", border:"rgba(200,75,0,0.2)",    icon:"🝛︝" },
+  "Architecture":           { accent:"#FF8A5C", bg:"#FFF4EF", fg:"#C84B00", border:"rgba(200,75,0,0.2)",    icon:"🏛" },
 };
 
 /* ── STATE ── */
@@ -5672,7 +5761,7 @@ function renderCards(list) {
 
       <div class="card-footer">
         <button class="btn-apply" onclick="showPage('careers'); switchTab('how-to-apply')">
-          ✝︝ Apply Now
+          ✈ Apply Now
         </button>
         <button class="btn-details"
           onclick="alert('Full details for ${job.itemNo} will open here.')">

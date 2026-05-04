@@ -1005,6 +1005,111 @@
     .directory-grid { grid-template-columns: 1fr; }
     .gl-cards { grid-template-columns: 1fr; }
   }
+
+  /* ══ REGIONAL DETAIL SUBPAGES ══ */
+.rdetail-wrap { padding-bottom: 28px; }
+
+.news-featured {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden; margin-bottom: 20px;
+  display: grid; grid-template-columns: 380px 1fr;
+  cursor: pointer; transition: box-shadow .18s;
+}
+.news-featured:hover { box-shadow: 0 6px 24px rgba(36,56,166,.1); }
+.news-featured-img { height: 240px; background: linear-gradient(135deg,#c8d0e8,#a0b0d0); display:flex; align-items:center; justify-content:center; }
+.news-featured-img span { font-size: 48px; opacity: .35; }
+.news-featured-body { padding: 24px 28px; display: flex; flex-direction: column; justify-content: center; }
+.news-featured .featured-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+.news-featured h2 { font-family: var(--font-sans); font-size: 18px; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 10px; }
+.news-featured p { font-size: 13px; color: var(--textlt); line-height: 1.6; }
+.news-featured .news-meta { margin-top: 16px; }
+
+.news-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-bottom: 28px; }
+.news-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden; cursor: pointer;
+  transition: box-shadow .18s, transform .18s;
+  display: flex; flex-direction: column;
+}
+.news-card:hover { box-shadow: 0 6px 24px rgba(36,56,166,.1); transform: translateY(-2px); }
+.news-img-placeholder { width: 100%; height: 160px; background: linear-gradient(135deg,#e8edf8,#d0d8f0); display:flex; align-items:center; justify-content:center; }
+.news-img-placeholder span { font-size: 32px; opacity: .4; }
+.news-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+.news-tag { display: inline-block; background: var(--light); color: var(--royal); font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-bottom: 8px; }
+.news-card h3 { font-size: 13.5px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 8px; }
+.news-card p { font-size: 12px; color: var(--textlt); line-height: 1.55; flex: 1; }
+.news-meta { margin-top: 12px; font-size: 11px; color: var(--textlt); display: flex; align-items: center; gap: 8px; }
+.news-dot { width: 3px; height: 3px; background: var(--muted); border-radius: 50%; }
+
+/* Directory */
+.dir-section-title { font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--textlt); margin: 20px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+.dir-leadership { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 24px; }
+.dir-person-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 4px; }
+.dir-person-card .role-label { font-size: 10px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--orange); margin-bottom: 4px; }
+.dir-person-card .person-name { font-size: 14px; font-weight: 600; color: var(--text); }
+.dir-person-card .person-detail { font-size: 12px; color: var(--textlt); line-height: 1.5; }
+.dir-person-card .person-contact { margin-top: 8px; font-size: 12px; color: var(--royal); }
+
+table.dir-table { width: 100%; border-collapse: collapse; font-size: 12.5px; background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+table.dir-table th { background: #F7F9FF; color: var(--textlt); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; padding: 9px 14px; border-bottom: 1.5px solid var(--border); text-align: left; }
+table.dir-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.dir-table tr:last-child td { border-bottom: none; }
+table.dir-table tr:nth-child(even) td { background: #FAFBFF; }
+table.dir-table tr:hover td { background: var(--light); }
+.office-name { font-size: 12.5px; font-weight: 500; color: var(--text); }
+.office-addr { font-size: 11.5px; color: var(--textlt); margin-top: 2px; }
+.contact-tel { font-size: 12px; color: var(--text); }
+.contact-email { font-size: 11.5px; color: var(--royal); margin-top: 2px; }
+
+/* Procurement & Projects */
+.proc-filter-bar { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.proc-filter-bar label { font-size: 12px; color: var(--textlt); font-weight: 500; }
+.proc-filter-bar select { padding: 7px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 12.5px; color: var(--text); background: var(--white); font-family: var(--font-sans); cursor: pointer; outline: none; }
+.proc-apply { margin-left: auto; background: var(--royal); color: var(--white); border: none; padding: 8px 20px; border-radius: 6px; font-size: 12.5px; font-weight: 600; cursor: pointer; font-family: var(--font-sans); transition: opacity .15s; }
+.proc-apply:hover { opacity: .88; }
+
+table.proc-table { width: 100%; border-collapse: collapse; font-size: 12.5px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+table.proc-table th { background: #F7F9FF; color: var(--textlt); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; padding: 9px 14px; border-bottom: 1.5px solid var(--border); text-align: left; }
+table.proc-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+table.proc-table tr:last-child td { border-bottom: none; }
+table.proc-table tr:nth-child(even) td { background: #FAFBFF; }
+table.proc-table tr:hover td { background: var(--light); }
+.proc-title { font-size: 12.5px; font-weight: 500; color: var(--text); line-height: 1.4; }
+.proc-ref { font-size: 11px; color: var(--textlt); font-family: monospace; margin-top: 2px; }
+.mode-badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+.mode-public { background: #E6F1FB; color: #0C447C; }
+.mode-nego   { background: #EAF3DE; color: #27500A; }
+.mode-svp    { background: #FAEEDA; color: #633806; }
+
+.proj-filter-bar { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.proj-filter-bar label { font-size: 12px; color: var(--textlt); font-weight: 500; }
+.proj-filter-bar select { padding: 7px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 12.5px; color: var(--text); background: var(--white); font-family: var(--font-sans); cursor: pointer; outline: none; }
+.proj-download { margin-left: auto; background: var(--white); color: var(--royal); border: 1.5px solid var(--royal); padding: 7px 16px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: var(--font-sans); transition: all .15s; display: flex; align-items: center; gap: 6px; }
+.proj-download:hover { background: var(--light); }
+
+table.proj-table { width: 100%; border-collapse: collapse; font-size: 12.5px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+table.proj-table th { background: #F7F9FF; color: var(--textlt); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; padding: 9px 14px; border-bottom: 1.5px solid var(--border); text-align: left; }
+table.proj-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+table.proj-table tr:last-child td { border-bottom: none; }
+table.proj-table tr:nth-child(even) td { background: #FAFBFF; }
+table.proj-table tr:hover td { background: var(--light); }
+.proj-name { font-size: 12.5px; font-weight: 500; color: var(--text); line-height: 1.4; }
+.proj-location { font-size: 11.5px; color: var(--textlt); margin-top: 2px; }
+.prog-bar-wrap { width: 100%; background: var(--light); border-radius: 4px; height: 6px; margin-top: 4px; }
+.prog-bar { height: 6px; border-radius: 4px; background: var(--blue); }
+.prog-pct { font-size: 11px; color: var(--royal); font-weight: 600; }
+.status-ongoing   { display:inline-block; background:#E6F1FB; color:#0C447C; font-size:10px; font-weight:600; padding:2px 8px; border-radius:3px; }
+.status-completed { display:inline-block; background:#EAF3DE; color:#27500A; font-size:10px; font-weight:600; padding:2px 8px; border-radius:3px; }
+.status-suspended { display:inline-block; background:#FAEEDA; color:#633806; font-size:10px; font-weight:600; padding:2px 8px; border-radius:3px; }
+.proj-note { font-size: 11.5px; color: var(--textlt); padding: 12px 16px; border-top: 1px solid var(--border); background: #FAFBFF; }
+
+/* Badges shared */
+.cat-badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.04em; }
+.cat-roads  { background: #E6F1FB; color: #0C447C; }
+.cat-bldg   { background: #EAF3DE; color: #27500A; }
+.cat-flood  { background: #E1F5EE; color: #085041; }
+.amount-val { font-size: 13px; font-weight: 600; color: var(--navy); }
+.amount-label { font-size: 10px; color: var(--textlt); }
 </style>
 </head>
 <body>
@@ -4750,10 +4855,10 @@ renderPage();
           <h2 id="region-detail-title" style="font-family:var(--font-sans);font-size:20px;font-weight:600;color:#fff;line-height:1.2;"></h2>
           <div id="region-detail-sub" style="font-size:13px;color:var(--muted);margin-top:3px;"></div>
         </div>
-        <div style="text-align:right;font-size:12px;color:var(--muted);line-height:1.7;">
-          <div>DPWH Building, Quezon Ave., Quezon City</div>
-          <div>(02) 8925-7227</div>
-          <div style="color:var(--orange);">ncr@dpwh.gov.ph</div>
+        <div id="region-contact-info" style="text-align:right;font-size:12px;color:var(--muted);line-height:1.7;">
+          <div id="region-contact-address">DPWH Building, Quezon Ave., Quezon City</div>
+          <div id="region-contact-tel">(02) 8925-7227</div>
+          <div id="region-contact-email" style="color:var(--orange);">ncr@dpwh.gov.ph</div>
         </div>
       </div>
 
@@ -5318,11 +5423,38 @@ function activateRegionTab(el, targetId) {
   if (target) target.classList.add('active');
 }
 
+const regionContacts = {
+  'NCR':   { address: 'DPWH Building, Quezon Ave., Quezon City',         tel: '(02) 8925-7227', email: 'ncr@dpwh.gov.ph'   },
+  'CAR':   { address: 'Magsaysay Ave., Baguio City',                     tel: '(074) 442-7071', email: 'car@dpwh.gov.ph'   },
+  'I':     { address: 'Aguila Road, San Fernando City, La Union',        tel: '(072) 888-2576', email: 'r1@dpwh.gov.ph'    },
+  'II':    { address: 'Carig, Tuguegarao City, Cagayan',                 tel: '(078) 844-1044', email: 'r2@dpwh.gov.ph'    },
+  'III':   { address: 'Sindalan, City of San Fernando, Pampanga',        tel: '(045) 455-1612', email: 'r3@dpwh.gov.ph'    },
+  'IV-A':  { address: 'Balagtas St., Lipa City, Batangas',               tel: '(043) 756-0540', email: 'r4a@dpwh.gov.ph'   },
+  'IV-B':  { address: 'Calapan City, Oriental Mindoro',                  tel: '(043) 288-1046', email: 'r4b@dpwh.gov.ph'   },
+  'V':     { address: 'Rawis, Legazpi City, Albay',                      tel: '(052) 480-5062', email: 'r5@dpwh.gov.ph'    },
+  'VI':    { address: 'Bonifacio Drive, Iloilo City',                    tel: '(033) 337-7971', email: 'r6@dpwh.gov.ph'    },
+  'VII':   { address: 'Sudlon, Lahug, Cebu City',                        tel: '(032) 232-3397', email: 'r7@dpwh.gov.ph'    },
+  'VIII':  { address: 'Trece Martires St., Tacloban City',               tel: '(053) 321-2397', email: 'r8@dpwh.gov.ph'    },
+  'IX':    { address: 'Zamboanga City',                                   tel: '(062) 991-1629', email: 'r9@dpwh.gov.ph'    },
+  'X':     { address: 'Lapasan, Cagayan de Oro City',                    tel: '(088) 856-4180', email: 'r10@dpwh.gov.ph'   },
+  'XI':    { address: 'Matina, Davao City',                              tel: '(082) 297-2532', email: 'r11@dpwh.gov.ph'   },
+  'XII':   { address: 'Koronadal City, South Cotabato',                  tel: '(083) 228-2651', email: 'r12@dpwh.gov.ph'   },
+  'XIII':  { address: 'Butuan City, Agusan del Norte',                   tel: '(085) 342-5619', email: 'r13@dpwh.gov.ph'   },
+  'BARMM': { address: 'Cotabato City',                                   tel: '(064) 421-1173', email: 'barmm@dpwh.gov.ph' },
+};
+
 function openRegion(r) {
   document.getElementById('regional-list').style.display = 'none';
   document.getElementById('regional-detail').style.display = 'block';
-  const titleEl = document.getElementById('region-news-title');
-  if (titleEl) titleEl.textContent = `Region ${r.code} News`;
+  document.getElementById('region-breadcrumb').textContent = `Region ${r.code} — ${r.name}`;
+  document.getElementById('region-detail-title').textContent = `DPWH Regional Office ${r.code}`;
+  document.getElementById('region-detail-sub').textContent = r.name;
+
+  const contact = regionContacts[r.code] || regionContacts['NCR'];
+  document.getElementById('region-contact-address').textContent = contact.address;
+  document.getElementById('region-contact-tel').textContent     = contact.tel;
+  document.getElementById('region-contact-email').textContent   = contact.email;
+
   document.querySelectorAll('#regional-detail .subpage-tab').forEach((t,i) => t.classList.toggle('active', i === 0));
   document.querySelectorAll('#regional-detail .r-section').forEach((s,i) => s.classList.toggle('active', i === 0));
 }
